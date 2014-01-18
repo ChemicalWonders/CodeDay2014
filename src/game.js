@@ -10,7 +10,7 @@
     var texture = PIXI.Texture.fromImage("static/bunny.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
-		var person = new Person();
+		var person = new Player();
     // center the sprites anchor point
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
@@ -20,7 +20,7 @@
     bunny.position.y = 150;
 
     stage.addChild(bunny);
-
+		person.addToStage(stage);
     function animate() {
 
         requestAnimFrame( animate );
