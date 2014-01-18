@@ -2,7 +2,7 @@
 
 (function(){
 	var stage = new PIXI.Stage(0x066FF99);
-	var renderer = PIXI.autoDetectRenderer(400, 300);
+	var renderer = PIXI.autoDetectRenderer(800, 600);
 	document.body.appendChild(renderer.view);
 	requestAnimFrame(animate);
 
@@ -10,7 +10,7 @@
     var texture = PIXI.Texture.fromImage("static/bunny.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
-		var person = new Player();
+		var person = new Player(0,0);
     // center the sprites anchor point
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
