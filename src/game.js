@@ -26,7 +26,7 @@
         requestAnimFrame( animate );
 
         // just for fun, lets rotate mr rabbit a little
-        bunny.pivot(100,100);
+        bunny.rotation += 0.1;
 
         // render the stage
         renderer.render(stage);
