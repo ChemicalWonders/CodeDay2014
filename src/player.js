@@ -5,8 +5,8 @@ function Player(x, y)
 		
 		var texture = PIXI.Texture.fromImage("static/bunny.png");
 		this.object = new PIXI.Sprite(texture);
-		this.object.position.x = 0;
-		this.object.position.y = 0;
+		this.object.position.x = x;
+		this.object.position.y = y;
 }
 
 
