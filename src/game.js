@@ -1,7 +1,6 @@
-
 (function(){
 	var stage = new PIXI.Stage(0x066FF99);
-	var render = PIXI.autoDetectRenderer(400, 300);
+	var renderer = PIXI.autoDetectRenderer(400, 300);
 	document.body.appendChild(renderer.view);
 	requestAnimFrame(animate);
 
@@ -30,6 +29,5 @@
         // render the stage
         renderer.render(stage);
     }
-
-
+    animate();
 })();
