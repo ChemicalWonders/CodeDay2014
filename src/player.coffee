@@ -18,16 +18,16 @@ class Player
 		@sprite.scale.x *= -1
 		this
 
-	fall: () ->
+	fall: (dy = 0) ->
 		if @sprite.position.y < ground_line
-			@sprite.position.y += 4
+			@sprite.position.y += 1
 		else
-			@sprite.position.y += velocity_y
+			@sprite.position.y += dy
 		this
 
-	move_character: (dx = 0) ->
+	move_character: (dx = 0, dy = 0) ->
 		@sprite.position.x += dx
-		@fall()
+		@fall(dy)
 		this
 
 	collision_test_enemy: (enemy) ->
@@ -45,9 +45,13 @@ class Player
 			@alive = false
 		else
 			@health -= 1 if @collison_test(enemy_list)
-			@move_character(@velocity_x)
-			@flip_sprite() if @direction == 0 and @velocity_x < 0
-			@flip_sprite() if @direction == 0 and @velocity_x > 0
+			flip = (@direction == -1 and @velocity_x < 0) or (@direction == 1 and @velocity_x > 0)
+			if flip
+				@move_character(@direction * @sprite.width, 0)
+				@flip_sprite()
+				@move_character(-@direction * @sprite.width, 0)
+
+			@move_character(@velocity_x, @velocity_y) if not flip
 			@velocity_x = 0
 			@velocity_y = 0
 		this
