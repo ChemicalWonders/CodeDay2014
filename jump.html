@@ -7,6 +7,9 @@
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=BenchNine">
 <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Bad+Script'>
 
+<script src="bin/buzz.js"></script>
+<script src="bin/buzz.min.js"></script>
+
 <style>
 
 body
@@ -206,6 +209,10 @@ var mx = 10; //MAXIMUM SHADOW BLUR
 var loop = (mx-mn)+1; //LOOP GOING UP AND DOWN
 var x = -1; //CONSTANT INCREMENTING VARIABLE
 var p = mn-1; //MINIMUM SHADOW BEFORE FUNCTION (MUST 1 LESS THAN "var mn")
+
+var mySound = new buzz.sound("static/dearlybeloved.mp3");
+mySound.play();
+mySound.loop();
 function glow(){
   var v = $('#t').val(); //INPUT STRING
   x++; //CONSTANTLY INCREMENTING
@@ -236,15 +243,7 @@ glow(); //RUNS THE FUNCTION UPON PAGE LOAD
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 </script>
 
-<script>
-function playSound(){
-    var snd=document.getElementById('noise');
-    canPlayMP3 = (typeof snd.canPlayType === "function" && snd.canPlayType("audio/mpeg") !== "");
-    snd.src=canPlayMP3?'smash.mpeg':'smash.ogg';
-    snd.load();
-    snd.play();
-}
-</script>
+
 
 <script>
 
