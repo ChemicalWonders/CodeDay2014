@@ -49,7 +49,11 @@ Projectile.prototype.run = function()
 				else
 				{
 						//damage the player
-
+						if(this.collisionPlayer(this.object.position.x,
+																	 this.object.position.y))
+						{
+								this.drop();
+						}
 				}
 		}
 		else
@@ -66,6 +70,12 @@ Projectile.prototype.addToStage = function(stage)
 Projectile.prototype.bounding_box = function() {
     return new PIXI.Rectangle(this.object.position.x, this.object.position.y, this.object.width, this.object.height);
 };
+
+Projectile.prototype.collisionPlayer = function(x, y)
+{
+		return ((x > hero.sprite.position.x && x < hero.sprite.position.x+hero.sprite.width)
+						&& (y > hero.sprite.position.y && y < hero.sprite.position.y+hero.sprite.height));
+}
 
 //self deletion function
 Projectile.prototype.drop = function()

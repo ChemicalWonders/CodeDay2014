@@ -7,10 +7,12 @@ function Enemy(stage, x,y, direction)
 		this.object = new PIXI.Sprite(texture);
 		this.object.position.x = x;
 		this.object.position.y = y;
+		this.object.anchor.x = 0;
+		this.object.anchor.y = 0;
 		this.direction = direction;
 		this.stage = stage;
 		//assign arbitrary hit area
-		this.object.hitArea = new PIXI.Rectangle(0,0,10,10);
+		this.object.hitArea = new PIXI.Rectangle(0,0,this.object.width,this.object.height);
 
 		Enemy.allEnemies.push(this);
 		this.addToStage(stage);
