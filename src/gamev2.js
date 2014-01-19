@@ -1,37 +1,3 @@
-<<<<<<< HEAD
-var main = function(){
-	kd.LEFT.down(function() {
-	  return hero.velocity_x -= 5;
-	});
-
-	kd.RIGHT.down(function() {
-	  return hero.velocity_x += 5;
-	});
-
-	kd.X.down(function() {
-	  return hero.velocity_y -= 5;
-	});
-
-	kd.run(function() {
-		kd.tick();
-	})
-	var stage = new PIXI.Stage(0x66FF99);
-	var canvas = document.getElementById('game-canvas');
-	var renderer = PIXI.autoDetectRenderer(canvas.width, canvas.height, canvas);
-	stage.addChild(hero.sprite);
-	renderer.render(stage);
-
-	var update = function(){
-
-		hero.update();
-		renderer.render(stage);
-  		requestAnimFrame(update);
-	}
-
-	requestAnimFrame(update);
-};
-=======
-
 
 (function(){
     var interactive = true;
@@ -46,11 +12,20 @@ var main = function(){
     var texture = PIXI.Texture.fromImage("static/bunny2.png.jpg");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
+<<<<<<< HEAD:src/gamev2.js
+//		var person = new Player(0,0);
+=======
 	var person = new Person();
+>>>>>>> origin/Mastering-WASD-and-Arrow-Keys:src/game.js
     // center the sprites anchor point
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
+<<<<<<< HEAD:src/gamev2.js
+		var person = new Player(0,0);
+		var objectmanager = new ObjectManager();
+		var enemy = new Enemy(stage, 200,0, 1);
+=======
     //Setting Interactivity
     bunny.setInteractive(true);
     bunny.buttonMode = true;
@@ -60,11 +35,16 @@ var main = function(){
     bunny.position.x = 150;
     bunny.position.y = 150;
 
+>>>>>>> origin/Mastering-WASD-and-Arrow-Keys:src/game.js
     stage.addChild(bunny);
-
+//		person.addToStage(stage);
+		enemy.addToStage(stage);
     function animate() {
 
         requestAnimFrame( animate );
+<<<<<<< HEAD:src/gamev2.js
+				objectmanager.run();
+=======
 .
 
         bunny.click = function(mouseData){
@@ -81,6 +61,7 @@ var main = function(){
 
         }
 
+>>>>>>> origin/Mastering-WASD-and-Arrow-Keys:src/game.js
         document.addEventListener('keydown',function(event){
             if(event.keyCode == 37 || event.keyCode == 65) {
                 bunny.position.x -= 0.005;
@@ -102,4 +83,3 @@ var main = function(){
     }
     animate();
 })();
->>>>>>> 85e7b8ce370eb3f3024934f047bceebb6bc9b6bb
