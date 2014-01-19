@@ -10,6 +10,9 @@ var main = function(){
 	kd.X.down(function() {
 	  return hero.velocity_y -= hero.sprite.height/2;
 	});
+	kd.Z.down(function() {
+		hero.fire_projectile(stage);
+	});
 
 	kd.run(function() {
 		kd.tick();

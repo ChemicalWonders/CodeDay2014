@@ -31,6 +31,7 @@ Projectile.prototype.run = function()
 				//check for the damaages
 				if(this.isPlayer)
 				{
+/*
 						for(i = 0; i < Enemy.allEnemies.length; i++)
 						{
 								if(this.collisionEnemy(Enemy.allEnemies[i], this.object.x, this.object.y))
@@ -40,7 +41,7 @@ Projectile.prototype.run = function()
 										Enemy.allEnemies[i].damage(1);
 								}
 						}
-
+*/
 				}
 				else
 				{
