@@ -9,6 +9,7 @@ function Projectile(stage, x, y, speed, direction, lifetime, isplayer)
 		this.object.position.x = x;
 		this.object.position.y = y;
 		this.speed = speed;
+		this.yaw = (Math.random()*4)-2;
 		this.direction = direction;
 		this.object.hitArea = new PIXI.Rectangle(0,0,1,1);
 		this.stage = stage;
@@ -28,21 +29,22 @@ Projectile.prototype.run = function()
 		if(this.endTimer > Date.now())
 		{
 			this.object.position.x += this.speed * this.direction;
-				this.object.position.y += (Math.random()*10)-5;
+				this.object.position.y += this.yaw;
 				//check for the damaages
 				if(this.isPlayer)
 				{
-/*
+						/*
 						for(i = 0; i < Enemy.allEnemies.length; i++)
 						{
+								
 								if(this.collisionEnemy(Enemy.allEnemies[i], this.object.x, this.object.y))
 								{
 										//hit enemy
 										hit = true;
 										Enemy.allEnemies[i].damage(1);
 								}
-						}
-*/
+						}*/
+
 				}
 				else
 				{

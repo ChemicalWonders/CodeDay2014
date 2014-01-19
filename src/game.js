@@ -1,4 +1,5 @@
 var main = function(){
+		var shootTimer = Date.now();
 	kd.LEFT.down(function() {
 	  return hero.velocity_x -= 8;
 	});
@@ -11,7 +12,11 @@ var main = function(){
 	  return hero.velocity_y -= hero.sprite.height*2;
 	});
 	kd.Z.down(function() {
-		hero.fire_projectile(stage);
+		if(shootTimer < Date.now())
+			{
+					hero.fire_projectile(stage);
+					shootTimer = Date.now()+300;
+			}
 	});
 
 	kd.run(function() {
