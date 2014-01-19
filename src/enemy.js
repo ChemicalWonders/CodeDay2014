@@ -67,6 +67,12 @@ Enemy.prototype.run = function()
 		{
 				//kill
 				//remove from the list
+				var t = Enemy.allEnemies.indexOf(this);
+				if(t != -1)
+						Enemy.allEnemies.splice(i, 1);
+
+				var texture = PIXI.Texture.fromImage("static/gore.png");
+				var gore = new PIXI.Sprite(texture);				
 				this.object.visible = false;
 				delete this;
 		}
