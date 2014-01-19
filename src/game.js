@@ -1,14 +1,14 @@
 var main = function(){
 	kd.LEFT.down(function() {
-	  return hero.velocity_x -= 5;
+	  return hero.velocity_x -= 8;
 	});
 
 	kd.RIGHT.down(function() {
-	  return hero.velocity_x += 5;
+	  return hero.velocity_x += 8;
 	});
 
 	kd.X.down(function() {
-	  return hero.velocity_y -= 5;
+	  return hero.velocity_y -= hero.sprite.height/2;
 	});
 
 	kd.run(function() {
@@ -17,7 +17,11 @@ var main = function(){
 	var stage = new PIXI.Stage(0x66FF99);
 	var canvas = document.getElementById('game-canvas');
 	var renderer = PIXI.autoDetectRenderer(canvas.width, canvas.height, canvas);
-	
+
+	stage.addChild(hero.sprite);
+	renderer.render(stage);
+
+
 	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");	
 		far = new PIXI.TilingSprite(farTexture, 1300, 650);
 		far.position.x = 0;
@@ -26,6 +30,10 @@ var main = function(){
 		far.tilePosition.y = 0;
 		stage.addChild(far);
 
+
+
+
+		hero.update();
 
         //file doesn't exist it still works. wat
 		var midTexture = PIXI.Texture.fromImage("static/ignore.png");
@@ -51,4 +59,8 @@ var main = function(){
 	stage.addChild(hero.sprite);
 	renderer.render(stage);
 
+
+	requestAnimFrame(update);
 };
+
+

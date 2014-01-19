@@ -15,8 +15,11 @@ function Projectile(stage, x, y, speed, direction, lifetime, isplayer)
 		Projectile.allProjectiles.push(this);
 		this.addToStage(stage);
 		this.endTimer = Date.now() + lifetime;
+<<<<<<< HEAD
 		this.isPlayer = isplayer;
 
+=======
+>>>>>>> origin/master
 }
 
 
