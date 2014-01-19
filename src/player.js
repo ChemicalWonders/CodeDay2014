@@ -16,11 +16,15 @@ Player = (function() {
     this.velocity_x = 0;
     this.velocity_y = 0;
     this.direction = 1;
+<<<<<<< HEAD
 	
 	function GetDivElement() {
     return health;
   }
 	
+=======
+    this.damage_timer = 0;
+>>>>>>> 513e4b0459befb021153681c8564cb96092f951b
   }
 
   Player.prototype.flip_sprite = function() {
@@ -43,7 +47,7 @@ Player = (function() {
   };
 
   Player.prototype.fire_projectile = function(stage) {
-    return new Projectile(stage, this.sprite.position.x  + .5 * this.sprite.width * -this.direction, this.sprite.position.y, 5, -this.direction, 1000, true);
+    return new Projectile(stage, this.sprite.position.x + (-this.direction * this.sprite.width), this.sprite.position.y, 5, -this.direction, 1000, true);
   };
 
   Player.prototype.move_character = function(dx, dy) {
@@ -58,11 +62,27 @@ Player = (function() {
     return this;
   };
 
+  Player.prototype.damage = function(damage) {
+    if (damage == null) {
+      damage = 1;
+    }
+    this.damage_timer = Date.now() + 1000;
+    hero.health -= damage;
+    return this.sprite.tint = 0xFF0000;
+  };
+
   Player.prototype.update = function() {
     var flip;
     if (this.health <= 0) {
       this.alive = false;
+      this.sprite.tint = 0x000080;
     } else {
+      if (Date.now() > this.damage_timer) {
+        this.sprite.tint = 0xFF0000;
+      }
+      ({
+        "else": this.sprite.tint = 0xFFFFFF
+      });
       console.log(this.health);
       flip = (this.direction === -1 && this.velocity_x < 0) || (this.direction === 1 && this.velocity_x > 0);
       if (flip) {
