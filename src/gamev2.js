@@ -2,47 +2,7 @@
 
 (function(){
 	var stage = new PIXI.Stage(0x066FF99);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	var renderer = PIXI.autoDetectRenderer(1500, 625);
-=======
-	var renderer = PIXI.autoDetectRenderer(800, 600);
->>>>>>> 3f7af9ee36edf044ce4a404c6f2328fd7b07ad9d
-=======
-	var renderer = PIXI.autoDetectRenderer(800, 600);
->>>>>>> 3f7af9ee36edf044ce4a404c6f2328fd7b07ad9d
-=======
-	var renderer = PIXI.autoDetectRenderer(800, 600);
->>>>>>> 3f7af9ee36edf044ce4a404c6f2328fd7b07ad9d
-=======
-	var renderer = PIXI.autoDetectRenderer(800, 600);
->>>>>>> 3f7af9ee36edf044ce4a404c6f2328fd7b07ad9d
-=======
-	var renderer = PIXI.autoDetectRenderer(800, 600);
->>>>>>> 3f7af9ee36edf044ce4a404c6f2328fd7b07ad9d
-=======
-	var renderer = PIXI.autoDetectRenderer(800, 600);
->>>>>>> 3f7af9ee36edf044ce4a404c6f2328fd7b07ad9d
-=======
-	var renderer = PIXI.autoDetectRenderer(800, 600);
->>>>>>> 3f7af9ee36edf044ce4a404c6f2328fd7b07ad9d
-=======
-	var renderer = PIXI.autoDetectRenderer(800, 600);
->>>>>>> 3f7af9ee36edf044ce4a404c6f2328fd7b07ad9d
-=======
-	var renderer = PIXI.autoDetectRenderer(800, 600);
->>>>>>> 3f7af9ee36edf044ce4a404c6f2328fd7b07ad9d
-=======
-	var renderer = PIXI.autoDetectRenderer(800, 600);
->>>>>>> 3f7af9ee36edf044ce4a404c6f2328fd7b07ad9d
+	var renderer = PIXI.CANVAS_RENDERER;
 	document.body.appendChild(renderer.view);
 	requestAnimFrame(animate);
 
@@ -65,8 +25,6 @@
 
         requestAnimFrame( animate );
 
-<<<<<<< HEAD
-
         document.addEventListener('keydown',function(event){
             if(event.keyCode == 37 || event.keyCode == 65) {
                 bunny.position.x -= 0.005;
@@ -82,10 +40,8 @@
             if (event.keyCode == 38 || event.keyCode == 87)
                 bunny.position.y -=0.005;
         });
-=======
         // just for fun, lets rotate mr rabbit a little
         bunny.rotation += 0.1;
->>>>>>> 3f7af9ee36edf044ce4a404c6f2328fd7b07ad9d
 
         // render the stage
         renderer.render(stage);
