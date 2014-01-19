@@ -4,7 +4,7 @@
 function Projectile(stage, x, y, speed, direction, lifetime, isplayer)
 {
 		//initialize values
-		var texture = PIXI.Texture.fromImage("static/ball.jpg");
+		var texture = PIXI.Texture.fromImage("static/ball.png");
 		this.object = new PIXI.Sprite(texture);
 		this.object.position.x = x;
 		this.object.position.y = y;
