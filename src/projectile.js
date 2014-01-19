@@ -62,6 +62,10 @@ Projectile.prototype.addToStage = function(stage)
 		stage.addChild(this.object);
 }
 
+Projectile.prototype.bounding_box = function() {
+    return new PIXI.Rectangle(this.object.position.x, this.object.position.y, this.object.width, this.object.height);
+};
+
 //self deletion function
 Projectile.prototype.drop = function()
 {
