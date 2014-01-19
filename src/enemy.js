@@ -16,6 +16,11 @@ Enemy.prototype.run = function(player)
 				//shoot at player - do later
 				
 				}
+		else
+				{
+						//move toward player
+						
+				}
 		//just move him for now
 		
 }
