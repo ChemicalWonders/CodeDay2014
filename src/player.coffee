@@ -33,27 +33,11 @@ class Player
 		@fall(dy)
 		this
 
-
-
-	collision_test_enemy: (x, y) ->
-		((x > @sprite.position.x and x < @sprite.position.x + @sprite.width) and
-		( y  >  @sprite.position.y and y <  @sprite.position.y + @sprite.height))
-
-	collison_test: (enemy_list) ->
-		if not enemy_list?
-			false
-		else
-			for enemy in enemy_list
-				if @collision_test_enemy(enemy.object.position.x, enemy.object.position.y)
-					true
-		false
-
-	update: (enemy_list) ->
+	update: () ->
 		if @health <= 0
 			@alive = false
 		else
 			console.log(@health)
-			@health -= 1 if @collison_test(enemy_list)
 			flip = (@direction == -1 and @velocity_x < 0) or (@direction == 1 and @velocity_x > 0)
 			if flip
 				@move_character(@direction * @sprite.width, 0)

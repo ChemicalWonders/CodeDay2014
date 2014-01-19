@@ -28,7 +28,7 @@ var main = function(){
 	});
 
 	kd.X.down(function() {
-	  hero.velocity_y -= hero.sprite.height/2;
+	  hero.velocity_y -= hero.sprite.height;
 	});
 
 	kd.Z.down(function() {
@@ -56,25 +56,8 @@ var main = function(){
 		mid.tilePosition.x -= 0.64;
 		renderer.render(stage);
 		console.log(hero.health);
-            if (hero.health <= 0) {
-		      hero.alive = false;
-		    } else {
-		      if (Enemy.collision_test() || Projectile.collision_test()) {
-		        hero.health -= 1;
-		      }
-		      flip = (hero.direction === -1 && hero.velocity_x < 0) || (hero.direction === 1 && hero.velocity_x > 0);
-		      if (flip) {
-		        hero.move_character(hero.direction * hero.sprite.width, 0);
-		        hero.flip_sprite();
-		        hero.move_character(-hero.direction * hero.sprite.width, 0);
-		      }
-		      if (!flip) {
-		        hero.move_character(hero.velocity_x, hero.velocity_y);
-		      }
-		      hero.velocity_x = 0;
-		      hero.velocity_y = 0;
-		    }
 		objectmanager.run();
+		hero.update();
 		renderer.render(stage);
   		requestAnimFrame(update);
 

@@ -52,34 +52,12 @@ Player = (function() {
     return this;
   };
 
-  Player.prototype.collision_test_enemy = function(x, y) {
-    return (x > this.sprite.position.x && x < this.sprite.position.x + this.sprite.width) && (y > this.sprite.position.y && y < this.sprite.position.y + this.sprite.height);
-  };
-
-  Player.prototype.collison_test = function(enemy_list) {
-    var enemy, _i, _len;
-    if (enemy_list == null) {
-      false;
-    } else {
-      for (_i = 0, _len = enemy_list.length; _i < _len; _i++) {
-        enemy = enemy_list[_i];
-        if (this.collision_test_enemy(enemy.object.position.x, enemy.object.position.y)) {
-          true;
-        }
-      }
-    }
-    return false;
-  };
-
-  Player.prototype.update = function(enemy_list) {
+  Player.prototype.update = function() {
     var flip;
     if (this.health <= 0) {
       this.alive = false;
     } else {
       console.log(this.health);
-      if (this.collison_test(enemy_list)) {
-        this.health -= 1;
-      }
       flip = (this.direction === -1 && this.velocity_x < 0) || (this.direction === 1 && this.velocity_x > 0);
       if (flip) {
         this.move_character(this.direction * this.sprite.width, 0);

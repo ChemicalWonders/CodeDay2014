@@ -42,7 +42,7 @@ Enemy.prototype.run = function()
 						if(this.shootTimer < Date.now()) {
 								this.fireProjectile();
 								this.shootTimer = Date.now() + 1000;
-						}						
+						}
 				}
 				else
 				{
@@ -57,10 +57,16 @@ Enemy.prototype.run = function()
 								this.object.position.x += 1;
 						}
 				}
-				
+
 				if(this.object.position.y < 500)
 				{
 						this.object.position.y += 4;
+				}
+
+				if(this.collisionPlayer(this.object.position.x, this.object.position.y))
+				{
+
+					hero.health -= 1;
 				}
 		}
 		else
@@ -72,7 +78,7 @@ Enemy.prototype.run = function()
 						Enemy.allEnemies.splice(i, 1);
 
 				var texture = PIXI.Texture.fromImage("static/gore.png");
-				var gore = new PIXI.Sprite(texture);				
+				var gore = new PIXI.Sprite(texture);
 				this.object.visible = false;
 				delete this;
 		}
@@ -80,8 +86,8 @@ Enemy.prototype.run = function()
 
 Enemy.prototype.collisionPlayer = function(x, y)
 {
-		return ((x > hero.sprite.position.x && x < hero.sprite.position.x+Math.abs(hero.sprite.width))
-						&& (y > hero.sprite.position.y && y < hero.sprite.position.y+Math.abs(hero.sprite.height)));
+		return ((x >= hero.sprite.position.x && x <= hero.sprite.position.x+Math.abs(hero.sprite.width))
+						&& (y >= hero.sprite.position.y && y <= hero.sprite.position.y+Math.abs(hero.sprite.height)));
 }
 
 Enemy.collision_test = function()
