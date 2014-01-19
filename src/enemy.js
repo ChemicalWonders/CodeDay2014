@@ -1,11 +1,18 @@
-function Enemy(x,y)
+
+//ENEMY CLASS
+//ADDS ITSELF TO THE STAGE
+function Enemy(stage, x,y)
 {
 		var texture = PIXI.Texture.fromImage("static/bunny.png");
 		this.object = new PIXI.Sprite(texture);
 		this.object.position.x = x;
 		this.object.position.y = y;
+		this.stage = stage;
 		//assign arbitrary hit area
 		this.object.hitArea = new PIXI.Rectangle(0,0,10,10);
+
+		Enemy.allEnemies.push(this);
+		this.addToStage(stage);
 }
 
 
@@ -24,7 +31,10 @@ Enemy.prototype.run = function()
 						
 				}*/
 		//just move him for now
+		//patrol around origional area
+
 		this.object.position.x += 1;
+		this.fireProjectile();
 }
 
 Enemy.prototype.addToStage = function(stage)
@@ -44,5 +54,11 @@ Enemy.prototype.getDistanceFrom = function(player)
 Enemy.prototype.fireProjectile = function()
 {
 		//create a projectile and add that projectil to the objectmanager
+		var proj = new Projectile(this.stage,
+															this.object.position.x,
+															this.object.position.y,
+															10,
+															0);
 }
 
+Enemy.allEnemies = new Array();

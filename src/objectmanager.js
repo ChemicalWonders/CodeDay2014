@@ -1,28 +1,17 @@
 function ObjectManager()
 {
-		this.allEnemies = new Array();
-		this.allProjectiles = new Array();
 }
 
 ObjectManager.prototype.run = function()
 {
 		//run thru all objects
-		for(i = 0; i < this.allEnemies.length; i++){
-				this.allEnemies[i].run();
+		for(i = 0; i < Enemy.allEnemies.length; i++){
+				Enemy.allEnemies[i].run();
 						
 		}
-		for(i = 0; i < this.allProjectiles.length; i++){
-				this.allProjectiles[i].run();
+		for(i = 0; i < Projectile.allProjectiles.length; i++){
+				Projectile.allProjectiles[i].run();
 		}
 
 }
 
-ObjectManager.prototype.addEnemy = function(enemy)
-{
-		this.allEnemies.push(enemy);
-}
-
-ObjectManager.prototype.addProjectile = function(projectile)
-{
-		this.allProjecitles.push(projecitle);
-}
