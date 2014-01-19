@@ -89,7 +89,7 @@ var main = function(){
         plat.tilePosition.x -= 0.128;
 		renderer.render(stage);
 		console.log(hero.health);
-		objectmanager.run();
+		objectmanager.run(stage);
 		hero.update();
 		renderer.render(stage);
   		requestAnimFrame(update);
