@@ -8,49 +8,8 @@
 <script src="http://wcetdesigns.com/assets/javascript/jquery.js"></script>
 <script src="bin/buzz.js"></script>
 <script src="bin/buzz.min.js"></script>
-<script>
-var mn = 3; //MINIMUM SHADOW BLUR
-var mx = 10; //MAXIMUM SHADOW BLUR
-var loop = (mx-mn)+1; //LOOP GOING UP AND DOWN
-var x = -1; //CONSTANT INCREMENTING VARIABLE
-var p = mn-1; //MINIMUM SHADOW BEFORE FUNCTION (MUST 1 LESS THAN "var mn")
 
-var mySound = new buzz.sound("static/animals.mp3"); //New Sound for the page.
-mySound.play();
-function glow(){
-  var v = $('#t').val(); //INPUT STRING
-  x++; //CONSTANTLY INCREMENTING
-  var g = (x%(loop*2)); //TO KEEP THE PIXELS GOING UP AND DOWN SMOOTHLY
 
-   //IF AT THE MINIMUM, EXPAND SHADOW
-  if(g>=0&&g<=loop-1){
-    if(g==0){
-      p = mn-1;
-    }
-    p++;
-  }
-   //IF AT THE MAXIMUM, DIMINISH SHADOW
-  if(g>=loop&&g<=(loop*2)-1){
-    if(g==loop){
-      p = mx+1;
-    }
-    p--;
-  }
-
-   //ALTERS THE GLOW OF THE TEXT, EVERY 150 MILLISECONDS
-  $("#glo_txt").css({"text-shadow":"0 0 "+p+"px #12495d"}).html(v);
-  setTimeout("glow()", 150);
-}
-glow(); //RUNS THE FUNCTION UPON PAGE LOAD
-</script>
-<style>
-#glo_txt {
-  color: #ffffff;
-  font-size: 45px;
-  font-weight: bold;
-  text-shadow: 0 0 3px #12495d;
-  font-family: "BenchNine";
-}
 	<style>
 		body {
 			margin: 0;
@@ -80,6 +39,24 @@ glow(); //RUNS THE FUNCTION UPON PAGE LOAD
 	left: 900px;
 
 	}
+	
+	#game-canvas { background-color: #222222; 
+	  width: 1100px;
+height: 500px;
+border: 0px solid;
+align: center;
+position: absolute;
+top: 20px;
+left: 10px;
+color: #FFFFFF;
+border-radius: 15px;
+font-size: 20px;
+font-family: "BenchNine";
+padding-top: 0px;  
+padding-right: 0px;   
+padding-left: 0px;
+	  }
+	
 	</style>
   	<script src = 'bin/pixi.js'></script>
 	<script src = 'bin/underscore-min.js'></script>
@@ -96,7 +73,11 @@ glow(); //RUNS THE FUNCTION UPON PAGE LOAD
 
 	<body onload = 'main()'>
 			<div align='center'>
+<<<<<<< HEAD
 				<canvas id = 'game-canvas' width = '1300' height = '650'> </canvas>
+=======
+				<canvas id = "game-canvas" width = '1300' height = '650'> &nbsp;</canvas>
+>>>>>>> origin/master
 			</div>
 	</body>
 	</script>

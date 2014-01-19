@@ -7,6 +7,9 @@
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=BenchNine">
 <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Bad+Script'>
 
+<script src="bin/buzz.js"></script>
+<script src="bin/buzz.min.js"></script>
+
 <style>
 
 body
@@ -186,7 +189,17 @@ color:#000000;
   font-family: "Bad Script";
   padding-top: -20px;
   z-index: 52;
-}	
+}        
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:hover
+{
+color:#000000;
+}
 
 </style>
 
@@ -196,6 +209,10 @@ var mx = 10; //MAXIMUM SHADOW BLUR
 var loop = (mx-mn)+1; //LOOP GOING UP AND DOWN
 var x = -1; //CONSTANT INCREMENTING VARIABLE
 var p = mn-1; //MINIMUM SHADOW BEFORE FUNCTION (MUST 1 LESS THAN "var mn")
+
+var mySound = new buzz.sound("static/dearlybeloved.mp3");
+mySound.play();
+mySound.loop();
 function glow(){
   var v = $('#t').val(); //INPUT STRING
   x++; //CONSTANTLY INCREMENTING
@@ -225,13 +242,16 @@ glow(); //RUNS THE FUNCTION UPON PAGE LOAD
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 </script>
+
+
+
 <script>
 
 $(document).ready(function(){
   $("#1").click(function(){
   $("#maincontainer").replaceWith( "<div id='div1'></div>");
     $("#data_container").load("description.html #1");
-	$("#content").load("resume.html");
+        $("#content").load("resume.html");
   });
 });
 
@@ -259,12 +279,14 @@ $(document).ready(function(){
   });
 });
 
+
+
 </script>
 </head>
 
 <body>
 <div id="gamecontainer">
-<div id="start" value="start"><div align="left"><span id="1">START NEW GAME</span></div></div><br>
+<div id="start" value="start"><div align="left"><span id="1"><a href="index.html">START NEW GAME</a></span></div></div><br>
 <div id="button2"><div align="left"><span id="2">HOW TO PLAY</span></div></div><br>
 <div id="button3"><div align="left"><span id="3">STORY</span></div></div><br>
 <div id="button4"><div align="left"><span id="4">CREDITS</span></div></div><br>
