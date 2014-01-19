@@ -1,5 +1,7 @@
 var main = function(){
 		var shootTimer = Date.now();
+		var jumpTimer = Date.now();
+		var jumped = false;
 	kd.LEFT.down(function() {
       far.tilePosition.x += 4.5;  
       mid.tilePosition.x += 0.65;
@@ -13,9 +15,24 @@ var main = function(){
       plat.tilePosition.x -= 4.5;
 	  return hero.velocity_x += 8;
 	});
-
+		var timer = Date.now();
 	kd.X.down(function() {
-	  return hero.velocity_y -= hero.sprite.height*2;
+			if(jumpTimer < Date.now() && !jumped)
+			{
+					timer = Date.now() + 100;
+					jumped = true;		
+			}
+			else if(jumped)
+			{
+					if(timer > Date.now())
+							hero.sprite.position.y -= hero.sprite.height/2;
+					else
+					{
+							jumped = false;
+							jumpTimer = Date.now() + 2000;
+							}
+			}
+
 	});
 	kd.Z.down(function() {
 		if(shootTimer < Date.now())
