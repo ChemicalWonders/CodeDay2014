@@ -73,4 +73,4 @@ Player = (function() {
 
 })();
 
-hero = new Player(PIXI.Texture.fromImage('static/hero.png'));
+hero = new Player(PIXI.Texture.fromImage('static/bunny.png'));
