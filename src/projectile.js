@@ -26,7 +26,6 @@ Projectile.prototype.run = function()
 {
 		//shoot in the direction that we were pointing to
 		var hit = false;
-		
 		if(this.endTimer > Date.now())
 		{
 			this.object.position.x += this.speed * this.direction;

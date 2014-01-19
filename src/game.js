@@ -3,6 +3,7 @@ var main = function(){
 		var jumpTimer = Date.now();
 		var jumped = false;
 	kd.LEFT.down(function() {
+	  if (!hero.alive) return;
       far.tilePosition.x += 4.5;
       mid.tilePosition.x += 0.65;
       plat.tilePosition.x += 4.5;
@@ -11,6 +12,7 @@ var main = function(){
 	});
 
 	kd.RIGHT.down(function() {
+	  if (!hero.alive) return;
       far.tilePosition.x -= 4.5;
       mid.tilePosition.x -= 0.65;
       plat.tilePosition.x -= 4.5;
@@ -20,28 +22,29 @@ var main = function(){
 
 		var timer = Date.now();
 	kd.X.down(function() {
-			if(jumpTimer < Date.now() && !jumped)
-			{
-					timer = Date.now() + 100;
-					jumped = true;
-			}
-			else if(jumped)
-			{
-					if(timer > Date.now())
-							hero.sprite.position.y -= hero.sprite.height/2;
-					else
-					{
-							jumped = false;
-							jumpTimer = Date.now() + 2000;
-					}
-			}
+			if (!hero.alive) return;
+				if(jumpTimer < Date.now() && !jumped)
+				{
+						timer = Date.now() + 100;
+						jumped = true;
+				}
+				else if(jumped)
+				{
+						if(timer > Date.now())
+								hero.sprite.position.y -= hero.sprite.height * .75;
+						else
+						{
+								jumped = false;
+								jumpTimer = Date.now() + 2500;
+						}
+				}
 
 	});
 
 
 
 	kd.Z.down(function() {
-		if(shootTimer < Date.now())
+		if(hero.alive && shootTimer < Date.now())
 			{
 					hero.fire_projectile(stage);
 					shootTimer = Date.now()+300;
