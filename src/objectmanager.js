@@ -10,7 +10,7 @@ var collision_test = function(obj1, obj2) {
     return !(b1.x < b2.x + b2.width && b1.x + b1.width > b2.x && b1.y < b2.y + b2.height && b1.y + b1.height > b2.y);
 };
 
-ObjectManager.prototype.run = function(hero)
+ObjectManager.prototype.run = function(stage)
 {
     //run thru all objects
     for(i = 0; i < Enemy.allEnemies.length; i++){
@@ -21,5 +21,8 @@ ObjectManager.prototype.run = function(hero)
         Projectile.allProjectiles[i].run();
 
     }
-
+		if(Enemy.allEnemies.length < 5)
+		{
+				new Enemy(stage, Math.random() * 1400, 400,-1);
+		}
 }

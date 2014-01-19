@@ -23,6 +23,7 @@
 	border-radius:25px;
 	width: 445px;
 	font-family:"BenchNine", Verdana, Sans-serif;
+	background-image:url('static/cave-end.jpg');
 	font-size:20px;
 	position: absolute;
 	top: 10px;
@@ -41,7 +42,7 @@
 
 	}
 	
-	#game-canvas { background-color: #222222; 
+	#game-canvas { background-image:url('static/cave-end.jpg'); 
 	  width: 1100px;
 height: 500px;
 border: 0px solid;
@@ -57,23 +58,6 @@ padding-top: 0px;
 padding-right: 0px;   
 padding-left: 0px;
 	  }
-<<<<<<< HEAD
-
-	  #mute
-{
-width: 30px;
-height: 30px;
-border: 2px solid;
-opacity:0.9;
-align: center;
-filter:alpha(opacity=27); /* For IE8 and earlier */
-background-color: #356680;
-color: #FFFFFF;
-border-radius: 15px;
-
-}
-
-=======
 	  
 	  
 	  #inner {
@@ -85,59 +69,20 @@ position: absolute;
 top:450px;
 left:695px;
 }
->>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
 	
 	</style>
   	<script src = 'bin/pixi.js'></script>
-	<script src = 'bin/underscore-min.js'></script>
+	
 	<script src = 'bin/jquery-min.js'></script>
-	<script src = 'src/game.js'></script>
-	<script src = 'src/enemy.js'></script>
-	<script src = 'src/objectmanager.js'></script>
-	<script src = 'src/projectile.js'></script>
-	<script src = 'src/player.js'></script>
-	<script src = 'bin/keydrown.min.js'></script>
 
-	<script> 
-	var mySound = new buzz.sound("static/deepjungle.mp3", {
-  autoplay: true,
-  loop: true});
-
-	$(document).ready(function(){
-  	$("#1").click(function(){
-    if (!mySound.isPaused()){
-      mySound.stop();
-  }
-    else{
-      mySound.play();
-    }
-  })};
-	</script>
 </head>
 
-<script>
-var life_count=6;
-var person="<img src='static/heart.png'>";
 
-
-document.write("<div id='inner'>");
-
-
-for (var i=0;i<life_count;i++)
-{ 
-document.write(person + "&nbsp;");
-}
-
-document.write("</div>");
-
-</script>
 
 	<body onload = 'main()'>
 			<div align='center'>
 				<canvas id = "game-canvas" width = '1300' height = '650'> &nbsp;</canvas>
 			</div>
-
-			<div id="mute"><span id="1"><img src = "static/mute.png"/></span></div></div><br>
 	</body>
 	</script>
 </html>

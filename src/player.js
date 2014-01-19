@@ -29,11 +29,15 @@ Player = (function() {
       dy = 0;
     }
     if (this.sprite.position.y < ground_line) {
-      this.sprite.position.y += 2;
+      this.sprite.position.y += 1;
     } else {
       this.sprite.position.y += dy;
     }
     return this;
+  };
+
+  Player.prototype.fire_projectile = function(stage) {
+    return new Projectile(stage, this.sprite.position.x, this.sprite.position.y);
   };
 
   Player.prototype.move_character = function(dx, dy) {
@@ -48,35 +52,16 @@ Player = (function() {
     return this;
   };
 
-  Player.prototype.collision_test_enemy = function(enemy) {
-    var b1, b2;
-    b1 = this.my_bounding_box;
-    b2 = enemy.bounding_box();
-    return !(b1.x < b2.x + b2.width && b1.x + b1.width > b2.x && b1.y < b2.y + b2.height && b1.y + b1.height > b2.y);
-  };
-
-  Player.prototype.collison_test = function(enemy_list) {
-    this.my_bounding_box = this.bounding_box();
-    if (enemy_list != null) {
-      return enemy_list.some(function(enemy) {
-        return enemy.collision_test_enemy;
-      });
-    }
-  };
-
-  Player.prototype.update = function(enemy_list) {
+  Player.prototype.update = function() {
     var flip;
     if (this.health <= 0) {
       this.alive = false;
     } else {
-      if (this.collison_test(enemy_list)) {
-        this.health -= 1;
-      }
+      console.log(this.health);
       flip = (this.direction === -1 && this.velocity_x < 0) || (this.direction === 1 && this.velocity_x > 0);
       if (flip) {
         this.move_character(this.direction * this.sprite.width, 0);
         this.flip_sprite();
-        this.move_character(-this.direction * this.sprite.width, 0);
       }
       if (!flip) {
         this.move_character(this.velocity_x, this.velocity_y);
@@ -87,14 +72,10 @@ Player = (function() {
     return this;
   };
 
-  Player.prototype.bounding_box = function() {
-    return new PIXI.Rectangle(this.sprite.position.x, this.sprite.position.y, this.sprite.width, this.sprite.height);
-  };
-
   return Player;
 
 })();
 
-hero_texture = PIXI.Texture.fromImage('static/lovelybunny.jpg');
+hero_texture = PIXI.Texture.fromImage('static/duckpower.gif');
 
 hero = new Player(new PIXI.Sprite(hero_texture));

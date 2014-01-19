@@ -4,7 +4,7 @@
 function Projectile(stage, x, y, speed, direction, lifetime, isplayer)
 {
 		//initialize values
-		var texture = PIXI.Texture.fromImage("static/ball.jpg");
+		var texture = PIXI.Texture.fromImage("static/ball.png");
 		this.object = new PIXI.Sprite(texture);
 		this.object.position.x = x;
 		this.object.position.y = y;
@@ -49,9 +49,9 @@ Projectile.prototype.run = function()
 				else
 				{
 						//damage the player
-						if(this.collisionPlayer(this.object.position.x,
-																	 this.object.position.y))
+						if(this.collisionPlayer(this.object.position.x, this.object.position.y))
 						{
+								hero.health -= 1;
 								this.drop();
 						}
 				}
@@ -73,9 +73,17 @@ Projectile.prototype.bounding_box = function() {
 
 Projectile.prototype.collisionPlayer = function(x, y)
 {
-		return ((x > hero.sprite.position.x && x < hero.sprite.position.x+hero.sprite.width)
-						&& (y > hero.sprite.position.y && y < hero.sprite.position.y+hero.sprite.height));
+		return ((x >= hero.sprite.position.x && x <= Math.abs(hero.sprite.position.x+Math.abs(hero.sprite.width)))
+				&& (y >= hero.sprite.position.y && y <= Math.abs(hero.sprite.position.y+hero.sprite.height)));
 }
+
+Projectile.collision_test = function()
+{
+	return Projectile.allProjectiles.some(function(projectile){
+		return projectile.collisionPlayer(projectile.object.position.x, projectile.object.position.y);
+	});
+}
+
 
 //self deletion function
 Projectile.prototype.drop = function()
@@ -88,6 +96,7 @@ Projectile.prototype.drop = function()
 		{
 				Projectile.allProjectiles.splice(i,1);
 		}
+		this.object.position.y-=60;
 		this.object.visible = false;
 		delete this;
 }
