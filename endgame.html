@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>pixi.js example 1</title>
+
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=BenchNine">
+
+<script src="http://wcetdesigns.com/assets/javascript/jquery.js"></script>
+<script src="bin/buzz.js"></script>
+<script src="bin/buzz.min.js"></script>
+
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #000000;
+		}
+
+	#gamecontainer
+	{
+	border:2px solid;
+	border-radius:25px;
+	width: 445px;
+	font-family:"BenchNine", Verdana, Sans-serif;
+	background-image:url('static/cave-end.jpg');
+	font-size:20px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	height: 580px;
+	width: 1300px;
+	background-color: #000000;
+	}
+
+
+
+	#item{
+	position: absolute;
+	top: 400px;
+	left: 900px;
+
+	}
+	
+	#game-canvas { background-image:url('static/cave-end.jpg'); 
+	  width: 1100px;
+height: 500px;
+border: 0px solid;
+align: center;
+position: absolute;
+top: 20px;
+left: 10px;
+color: #FFFFFF;
+border-radius: 15px;
+font-size: 20px;
+font-family: "BenchNine";
+padding-top: 0px;  
+padding-right: 0px;   
+padding-left: 0px;
+	  }
+	  
+	  
+	  #inner {
+width:440px;
+height:40px;
+padding:10px;
+z-index: 52;
+position: absolute;
+top:450px;
+left:695px;
+}
+	
+	</style>
+  	<script src = 'bin/pixi.js'></script>
+	
+	<script src = 'bin/jquery-min.js'></script>
+
+</head>
+
+
+
+	<body onload = 'main()'>
+			<div align='center'>
+				<canvas id = "game-canvas" width = '1300' height = '650'> &nbsp;</canvas>
+			</div>
+	</body>
+	</script>
+</html>
