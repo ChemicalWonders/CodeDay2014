@@ -102,11 +102,30 @@ color: #FFFFFF;
 border-radius: 15px;
 font-size: 20px;
 font-family: "BenchNine";
-padding-top: 5x;   
+padding-top: 5x;
+padding-right: 0px;    
 padding-left: 20px;
 }
 
 #button5
+{
+width: 190px;
+height: 30px;
+border: 2px solid;
+align: center;
+opacity:0.9;
+filter:alpha(opacity=27); /* For IE8 and earlier */
+background-color: #356680;
+color: #FFFFFF;
+border-radius: 15px;
+font-size: 20px;
+font-family: "BenchNine";
+padding-top: 5px;  
+padding-right: 0px;   
+padding-left: 20px;
+}
+
+#button6
 {
 width: 190px;
 height: 30px;
@@ -210,9 +229,9 @@ var loop = (mx-mn)+1; //LOOP GOING UP AND DOWN
 var x = -1; //CONSTANT INCREMENTING VARIABLE
 var p = mn-1; //MINIMUM SHADOW BEFORE FUNCTION (MUST 1 LESS THAN "var mn")
 
-var mySound = new buzz.sound("static/dearlybeloved.mp3");
-mySound.play();
-mySound.loop();
+var mySound = new buzz.sound("static/dearlybeloved.mp3", {
+  autoplay: true,
+  loop: true});
 function glow(){
   var v = $('#t').val(); //INPUT STRING
   x++; //CONSTANTLY INCREMENTING
@@ -279,6 +298,18 @@ $(document).ready(function(){
   });
 });
 
+$(document).ready(function(){
+  $("#6").click(function(){
+
+    if (!mySound.isPaused()){
+      mySound.stop();
+    }
+    else{
+      mySound.play();
+    }
+  });
+});
+
 
 
 </script>
@@ -290,13 +321,13 @@ $(document).ready(function(){
 <div id="button2"><div align="left"><span id="2">HOW TO PLAY</span></div></div><br>
 <div id="button3"><div align="left"><span id="3">STORY</span></div></div><br>
 <div id="button4"><div align="left"><span id="4">CREDITS</span></div></div><br>
-<div id="button5"><div align="left"><span id="5">HIGH SCORE!</span></div></div><br>
+<div id="button5"><div align="left"><span id="5">SETTINGS</span></div></div><br>
+<div id="button6"><div align="left"><span id="6">MUTE SOUND/ENABLE SOUND</span></div></div><br>
 
 <div id="data_container">
 
-882
-332
-</div>
+<b>The Journey of Ron the Duck. Avenger of his Parents. The one and only Bronze Slug.
+</b></div>
 
 <div align="center"><a id="glo_txt">Bronze Slug: The Saga Continues</a></div>
 
