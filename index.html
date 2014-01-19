@@ -56,6 +56,17 @@ padding-top: 0px;
 padding-right: 0px;   
 padding-left: 0px;
 	  }
+	  
+	  
+	  #inner {
+width:440px;
+height:40px;
+padding:10px;
+z-index: 52;
+position: absolute;
+top:450px;
+left:695px;
+}
 	
 	</style>
   	<script src = 'bin/pixi.js'></script>
@@ -70,6 +81,23 @@ padding-left: 0px;
 
 	<script src = 'bin/keydrown.min.js'></script>
 </head>
+
+<script>
+var life_count=6;
+var person="<img src='static/heart.png'>";
+
+
+document.write("<div id='inner'>");
+
+
+for (var i=0;i<life_count;i++)
+{ 
+document.write(person + "&nbsp;");
+}
+
+document.write("</div>");
+
+</script>
 
 	<body onload = 'main()'>
 			<div align='center'>
