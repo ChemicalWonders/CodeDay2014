@@ -41,17 +41,14 @@ var main = function(){
 	});
 
 	kd.Z.down(function() {
-<<<<<<< HEAD
 		hero.fire_projectile(stage);
 		var gunshotsound = new buzz.sound("static/gunshot.mp3");
 		gunshotsound.play();
-=======
 		if(shootTimer < Date.now())
 			{
 					hero.fire_projectile(stage);
 					shootTimer = Date.now()+300;
 			}
->>>>>>> 1c340522c5c7208f43dfe81f277581ffd4de867e
 	});
 
 	kd.run(function() {
