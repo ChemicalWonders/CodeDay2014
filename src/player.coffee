@@ -11,6 +11,7 @@ class Player
 		@velocity_x = 0
 		@velocity_y = 0
 		@direction  = 1 #facing right
+		@damage_timer = 0
 
 	#If sprite turns around, flip the sprite
 	flip_sprite: () ->
@@ -31,13 +32,23 @@ class Player
 
 	move_character: (dx = 0, dy = 0) ->
 		@sprite.position.x += dx
-		@fall(dy)
+		@sprite.position.y += dy
+		#@fall(dy)
 		this
+
+	damage:(damage = 1) ->
+		@damage_timer = Date.now() + 1000
+		hero.health -= damage
+		@sprite.tint = 0xFF0000
 
 	update: () ->
 		if @health <= 0
 			@alive = false
 		else
+			if Date.now() > @damage_timer
+				@sprite.tint = 0xFF0000
+			else:
+				@sprite.tint = 0xFFFFFF
 			console.log(@health)
 			flip = (@direction == -1 and @velocity_x < 0) or (@direction == 1 and @velocity_x > 0)
 			if flip
@@ -50,9 +61,6 @@ class Player
 		this
 
 
-<<<<<<< HEAD
-hero_texture = PIXI.Texture.fromImage('static/bunny.png')
-=======
-hero_texture = PIXI.Texture.fromImage('static/duckypower.gif')
->>>>>>> origin/MobsAndObjects
+hero_texture = PIXI.Texture.fromImage('static/duckpower.gif')
+
 hero = new Player(new PIXI.Sprite(hero_texture))
