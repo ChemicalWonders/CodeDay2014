@@ -7,14 +7,28 @@
 
     // create a texture from an image path
     var texture = PIXI.Texture.fromImage("static/bunny.png");
+<<<<<<< HEAD
+    // create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
+//		var person = new Player(0,0);
+    // center the sprites anchor point
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
+=======
 
 		var person = new Player(0,0);
 		var objectmanager = new ObjectManager();
 		var enemy = new Enemy(stage, 200,0, 1);
+>>>>>>> 42a7fe2afe338938229ba7d99588d0af868656e5
 
 
+<<<<<<< HEAD
+    stage.addChild(bunny);
+//		person.addToStage(stage);
+=======
 		person.addToStage(stage);
 		enemy.addToStage(stage);
+>>>>>>> 42a7fe2afe338938229ba7d99588d0af868656e5
     function animate() {
 
         requestAnimFrame( animate );
