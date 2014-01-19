@@ -6,12 +6,17 @@
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=BenchNine">
 
 <script src="http://wcetdesigns.com/assets/javascript/jquery.js"></script>
+<script src="bin/buzz.js"></script>
+<script src="bin/buzz.min.js"></script>
 <script>
 var mn = 3; //MINIMUM SHADOW BLUR
 var mx = 10; //MAXIMUM SHADOW BLUR
 var loop = (mx-mn)+1; //LOOP GOING UP AND DOWN
 var x = -1; //CONSTANT INCREMENTING VARIABLE
 var p = mn-1; //MINIMUM SHADOW BEFORE FUNCTION (MUST 1 LESS THAN "var mn")
+
+var mySound = new buzz.sound("static/animals.mp3"); //New Sound for the page.
+mySound.play();
 function glow(){
   var v = $('#t').val(); //INPUT STRING
   x++; //CONSTANTLY INCREMENTING
@@ -85,10 +90,6 @@ glow(); //RUNS THE FUNCTION UPON PAGE LOAD
 	<script src = 'src/enemy.js'></script>
 	<script src = 'src/player.js'></script>
 	<script src = 'bin/keydrown.min.js'></script>
-</head>
-<body>
-
-
 </head>
 
 	<body onload = 'main()'>
