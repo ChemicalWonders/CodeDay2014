@@ -1,0 +1,72 @@
+<html>
+<head>
+<style>
+#heart
+{
+width:440px;
+height:40px;
+padding:10px;
+z-index: 102;
+position: absolute;
+top:450px;
+left:695px;
+border: 5px solid;
+}
+</style>
+<script src="http://wcetdesigns.com/assets/javascript/jquery.js"></script>
+<script src="bin/buzz.js"></script>
+<script src="bin/buzz.min.js"></script>
+<script src = 'bin/pixi.js'></script>
+	<script src = 'bin/underscore-min.js'></script>
+	<script src = 'bin/jquery-min.js'></script>
+	<script src = 'src/game.js'></script>
+	<script src = 'src/enemy.js'></script>
+	<script src = 'src/objectmanager.js'></script>
+	<script src = 'src/projectile.js'></script>
+	<script src = 'src/player.js'></script>
+	<script src = 'bin/keydrown.min.js'></script>
+
+<script src="src/player.js"></script>
+
+<script type="text/JavaScript">
+<!--
+function timedRefresh(timeoutPeriod) {
+	setTimeout("location.reload(true);",timeoutPeriod);
+}
+//   -->
+
+
+
+
+</script>
+
+
+
+
+
+
+</head>
+
+
+<body onload="JavaScript:timedRefresh(500);">
+
+<script type="text/javascript">
+
+	var x;
+	x = hero.health;
+
+	var life_count = x;
+	var person="<img src='static/heart.png'>";
+
+
+	for (var i=0;i<life_count;i++)
+	{ 
+	document.write(person + "&nbsp;");
+	}
+
+</script>
+
+</body>
+
+
+</html>
