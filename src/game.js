@@ -1,19 +1,8 @@
+var controls = function(){
+
+}
+
 var main = function(){
-	kd.LEFT.down(function() {
-	  return hero.velocity_x -= 8;
-	});
-
-	kd.RIGHT.down(function() {
-	  return hero.velocity_x += 8;
-	});
-
-	kd.X.down(function() {
-	  return hero.velocity_y -= hero.sprite.height/2;
-	});
-
-	kd.run(function() {
-		kd.tick();
-	})
 	var stage = new PIXI.Stage(0x66FF99);
 	var canvas = document.getElementById('game-canvas');
 	var renderer = PIXI.autoDetectRenderer(canvas.width, canvas.height, canvas);
@@ -30,7 +19,25 @@ var main = function(){
 		far.tilePosition.y = 0;
 		stage.addChild(far);
 
+	kd.LEFT.down(function() {
+	  hero.velocity_x -= 8;
+	});
 
+	kd.RIGHT.down(function() {
+	   hero.velocity_x += 8;
+	});
+
+	kd.X.down(function() {
+	  hero.velocity_y -= hero.sprite.height;
+	});
+
+	kd.Z.down(function() {
+	  hero.fire_projectile(stage);
+	});
+
+	kd.run(function() {
+		kd.tick();
+	})
 
 
 		hero.update();
@@ -48,8 +55,9 @@ var main = function(){
 		far.tilePosition.x -= 0.128;
 		mid.tilePosition.x -= 0.64;
 		renderer.render(stage);
-        hero.update();
+		console.log(hero.health);
 		objectmanager.run();
+		hero.update();
 		renderer.render(stage);
   		requestAnimFrame(update);
 

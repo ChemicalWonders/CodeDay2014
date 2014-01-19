@@ -42,7 +42,7 @@ Enemy.prototype.run = function()
 						if(this.shootTimer < Date.now()) {
 								this.fireProjectile();
 								this.shootTimer = Date.now() + 1000;
-						}						
+						}
 				}
 				else
 				{
@@ -57,20 +57,47 @@ Enemy.prototype.run = function()
 								this.object.position.x += 1;
 						}
 				}
-				
+
 				if(this.object.position.y < 500)
 				{
 						this.object.position.y += 4;
+				}
+
+				if(this.collisionPlayer(this.object.position.x, this.object.position.y))
+				{
+
+					hero.health -= 1;
 				}
 		}
 		else
 		{
 				//kill
 				//remove from the list
+				var t = Enemy.allEnemies.indexOf(this);
+				if(t != -1)
+						Enemy.allEnemies.splice(i, 1);
+
+				var texture = PIXI.Texture.fromImage("static/gore.png");
+				var gore = new PIXI.Sprite(texture);
 				this.object.visible = false;
 				delete this;
 		}
 }
+
+Enemy.prototype.collisionPlayer = function(x, y)
+{
+		return ((x >= hero.sprite.position.x && x <= hero.sprite.position.x+Math.abs(hero.sprite.width))
+						&& (y >= hero.sprite.position.y && y <= hero.sprite.position.y+Math.abs(hero.sprite.height)));
+}
+
+Enemy.collision_test = function()
+{
+	return Enemy.allEnemies.some(function(enemy){
+		return enemy.collisionPlayer(enemy.object.position.x, enemy.object.position.y);
+	});
+}
+
+
 
 Enemy.prototype.addToStage = function(stage)
 {
