@@ -4,7 +4,8 @@ function Enemy(x,y)
 		this.object = new PIXI.Sprite(texture);
 		this.object.position.x = x;
 		this.object.position.y = y;
-		
+		//assign arbitrary hit area
+		this.object.hitArea = new PIXI.Rectangle(0,0,10,10);
 }
 
 
@@ -42,6 +43,6 @@ Enemy.prototype.getDistanceFrom = function(player)
 
 Enemy.prototype.fireProjectile = function()
 {
-		
+		//create a projectile and add that projectil to the objectmanager
 }
 
