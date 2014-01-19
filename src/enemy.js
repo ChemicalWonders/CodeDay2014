@@ -82,4 +82,24 @@ Enemy.prototype.fireProjectile = function()
 
 }
 
+Enemy.prototype.damage = function(modifier)
+{
+		this.health -= modifier;
+}
+
+//Return function
+//to get the bounding box
+Enemy.prototype.getBoundingBox = function()
+{
+		return this.object.hitArea;
+}
+
+//return function
+//to see if specified point is within the collision bounds
+Enemy.prototype.getPointInsideBox = function(x, y)
+{
+		return ((x > this.object.hitArea.x && x < this.object.hitArea.x+this.object.hitArea.width)
+						&& (y > this.object.hitArea.y && y < this.object.hitArea.y+this.object.hitArea.height));
+}
+
 Enemy.allEnemies = new Array();
