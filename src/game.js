@@ -1,14 +1,39 @@
 var main = function(){
+		var shootTimer = Date.now();
+		var jumpTimer = Date.now();
+		var jumped = false;
 	kd.LEFT.down(function() {
+      far.tilePosition.x += 4.5;  
+      mid.tilePosition.x += 0.65;
+      plat.tilePosition.x += 4.5;
 	  return hero.velocity_x -= 8;
 	});
 
 	kd.RIGHT.down(function() {
+      far.tilePosition.x -= 4.5;  
+      mid.tilePosition.x -= 0.65;
+      plat.tilePosition.x -= 4.5;
 	  return hero.velocity_x += 8;
 	});
 
-	kd.UP.down(function() {
-	  return hero.velocity_y -= 8;
+		var timer = Date.now();
+	kd.X.down(function() {
+			if(jumpTimer < Date.now() && !jumped)
+			{
+					timer = Date.now() + 100;
+					jumped = true;	
+			}
+			else if(jumped)
+			{
+					if(timer > Date.now())
+							hero.sprite.position.y -= hero.sprite.height/2;
+					else
+					{
+							jumped = false;
+							jumpTimer = Date.now() + 2000;
+							}
+			}
+
 	});
 
 	kd.DOWN.down(function() {
@@ -16,7 +41,11 @@ var main = function(){
 	});
 
 	kd.Z.down(function() {
-		hero.fire_projectile(stage);
+		if(shootTimer < Date.now())
+			{
+					hero.fire_projectile(stage);
+					shootTimer = Date.now()+300;
+			}
 	});
 
 	kd.run(function() {
@@ -68,9 +97,6 @@ var main = function(){
 
     // Update Function
     function update() {
-		far.tilePosition.x -= 0.128;
-		mid.tilePosition.x -= 0.64;
-        plat.tilePosition.x -= 0.128;
 		renderer.render(stage);
         hero.update();
 		if(counter == 0){
