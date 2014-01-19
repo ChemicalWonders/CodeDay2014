@@ -1,14 +1,25 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-			<title> Our game </title>
-			<script src = 'bin/pixi.js'></script>
-			<script src = 'bin/underscore-min.js'></script>
-			<script src = 'bin/jquery-min.js'></script>
+<head>
+	<title>pixi.js example 1</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #000000;
+		}
+	</style>
+	<script src=  "bin/pixi.js"></script>
+  	<script src = 'bin/pixi.js'></script>
+	<script src = 'bin/underscore-min.js'></script>
+	<script src = 'bin/jquery-min.js'></script>
+	<script src = 'src/game.js'></script>
 
-	</head>
-	<body>
-			<script src ='src/game.js'></script>
+</head>
+	<body onload = 'main()'>
+			<div align='center'>
+				<canvas id = 'game-canvas' width = '512' height = '384'> <canvas>
+			</div>
 	</body>
-
+	</script>
 </html>
