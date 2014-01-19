@@ -43,10 +43,21 @@ var main = function(){
 		mid.tilePosition.x = 0;
         mid.tilePosition.y = 0;
         stage.addChild(mid);
+
+        // platform
+       var platTexture = PIXI.Texture.fromImage("static/block.jpg");
+        plat = new PIXI.TilingSprite(platTexture,1300,50);
+        plat.position.x = 0;
+        plat.position.y = 600;
+        plat.tilePosition.x = 0;
+        plat.tilePosition.y = 0;
+        stage.addChild(plat);
         requestAnimFrame(update);
+
     function update() {
 		far.tilePosition.x -= 0.128;
 		mid.tilePosition.x -= 0.64;
+		plat.tilePosition.x -= 0.100;
 		renderer.render(stage);
         hero.update();
 		objectmanager.run();
