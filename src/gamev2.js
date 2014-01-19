@@ -10,11 +10,9 @@
 
 		var person = new Player(0,0);
 		var objectmanager = new ObjectManager();
-<<<<<<< HEAD
-		var enemy = new Enemy(stage, 200,0);
-=======
+
 		var enemy = new Enemy(stage, 200,0, 1);
->>>>>>> origin/master
+
 
 
 		person.addToStage(stage);
