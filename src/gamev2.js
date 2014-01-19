@@ -10,6 +10,9 @@
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 		var person = new Player(0,0);
+		var objectmanager = new ObjectManager();
+		var enemy = new Enemy(200,0);
+		objectmanager.addEnemy(enemy);
     // center the sprites anchor point
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
@@ -20,10 +23,11 @@
 
     stage.addChild(bunny);
 		person.addToStage(stage);
+		enemy.addToStage(stage);
     function animate() {
 
         requestAnimFrame( animate );
-
+				objectmanager.run();
         document.addEventListener('keydown',function(event){
             if(event.keyCode == 37 || event.keyCode == 65) {
                 bunny.position.x -= 0.005;

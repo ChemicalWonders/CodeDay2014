@@ -6,8 +6,8 @@ function ObjectManager()
 
 ObjectManager.prototype.run = function()
 {
-		for(int i = 0; i < this.allEnemies.length; i++)
-				{
+		for(i = 0; i < this.allEnemies.length; i++){
+						this.allEnemies[i].run();
 						
 						}
 
