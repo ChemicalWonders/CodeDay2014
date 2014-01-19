@@ -13,6 +13,7 @@ function Enemy(stage, x,y, direction)
 		this.direction = direction;
 
 		this.stage = stage;
+		this.health = 1;
 		//assign arbitrary hit area
 		this.object.hitArea = new PIXI.Rectangle(0,0,10,10);
 
@@ -37,11 +38,20 @@ Enemy.prototype.run = function()
 				}*/
 		//just move him for now
 		//patrol around origional area
-
-		this.object.position.x += 1;
-		if(this.shootTimer < Date.now()) {
-				this.fireProjectile();
-				this.shootTimer = Date.now() + 1000;
+		if(this.health > 0)
+		{
+				this.object.position.x += 1;
+				if(this.shootTimer < Date.now()) {
+						this.fireProjectile();
+						this.shootTimer = Date.now() + 1000;
+				}
+		}
+		else
+		{
+				//kill
+				//remove from the list
+				this.object.visible = false;
+				delete this;
 		}
 }
 

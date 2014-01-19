@@ -35,6 +35,7 @@ Projectile.prototype.run = function()
 		{
 				//kill
 				this.object.visible = false;
+				delete this;
 		}
 }
 
