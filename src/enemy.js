@@ -52,6 +52,10 @@ Enemy.prototype.getDistanceFrom = function(player)
 		return ret;
 }
 
+Enemy.prototype.getDistanceFrom = function(player){
+	return new PIXI.Rectangle();
+}
+
 Enemy.prototype.fireProjectile = function()
 {
 		//create a projectile and add that projectil to the objectmanager
