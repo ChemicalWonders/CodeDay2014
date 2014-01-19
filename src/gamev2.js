@@ -8,21 +8,13 @@
 
     // create a texture from an image path
     var texture = PIXI.Texture.fromImage("static/bunny.png");
-    // create a new Sprite using the texture
-    var bunny = new PIXI.Sprite(texture);
+
 		var person = new Player(0,0);
 		var objectmanager = new ObjectManager();
 		var enemy = new Enemy(200,0);
 		objectmanager.addEnemy(enemy);
-    // center the sprites anchor point
-    bunny.anchor.x = 0.5;
-    bunny.anchor.y = 0.5;
 
-    // move the sprite t the center of the screen
-    bunny.position.x = 200;
-    bunny.position.y = 150;
 
-    stage.addChild(bunny);
 		person.addToStage(stage);
 		enemy.addToStage(stage);
     function animate() {
@@ -44,8 +36,6 @@
             if (event.keyCode == 38 || event.keyCode == 87)
                 bunny.position.y -=0.005;
         });
-        // just for fun, lets rotate mr rabbit a little
-        bunny.rotation += 0.1;
 
         // render the stage
         renderer.render(stage);
