@@ -45,6 +45,10 @@ Enemy.prototype.run = function()
 						this.fireProjectile();
 						this.shootTimer = Date.now() + 1000;
 				}
+				if(this.object.position.y < 500)
+				{
+						this.object.position.y += 4;
+				}
 		}
 		else
 		{
