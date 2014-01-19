@@ -1,16 +1,16 @@
 var main = function(){
 		var shootTimer = Date.now();
 	kd.LEFT.down(function() {
-      far.tilePosition.x -= 4.5;  
-      mid.tilePosition.x -= 0.65;
-      plat.tilePosition.x -= 4.5;
+      far.tilePosition.x += 4.5;  
+      mid.tilePosition.x += 0.65;
+      plat.tilePosition.x += 4.5;
 	  return hero.velocity_x -= 8;
 	});
 
 	kd.RIGHT.down(function() {
-      far.tilePosition.x += 4.5;  
-      mid.tilePosition.x += 0.65;
-      plat.tilePosition.x += 4.5;
+      far.tilePosition.x -= 4.5;  
+      mid.tilePosition.x -= 0.65;
+      plat.tilePosition.x -= 4.5;
 	  return hero.velocity_x += 8;
 	});
 
