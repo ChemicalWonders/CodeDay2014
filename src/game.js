@@ -11,6 +11,7 @@ var main = function(){
 	  return hero.velocity_x -= .0001;
 	});
 
+	
 	kd.RIGHT.down(function() {
 	  if (!hero.alive) return;
       far.tilePosition.x -= 4.5;
