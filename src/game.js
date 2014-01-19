@@ -11,7 +11,6 @@ var main = function(){
 	  return hero.velocity_x -= .0001;
 	});
 
-	
 	kd.RIGHT.down(function() {
 	  if (!hero.alive) return;
       far.tilePosition.x -= 4.5;
@@ -32,7 +31,7 @@ var main = function(){
 				else if(jumped)
 				{
 						if(timer > Date.now())
-								hero.sprite.position.y -= hero.sprite.height * .75;
+								hero.sprite.position.y -= hero.sprite.height * .5;
 						else
 						{
 								jumped = false;
