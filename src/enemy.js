@@ -18,6 +18,7 @@ function Enemy(stage, x,y, direction)
 		this.addToStage(stage);
 		this.shootTimer = Date.now();
 		this.health = 1;
+		this.damageTimer = Date.now();
 }
 
 
@@ -78,8 +79,10 @@ Enemy.prototype.run = function()
 
 				if(this.collisionPlayer(this.object.position.x, this.object.position.y))
 				{
-
-					hero.damage()
+					if(this.damageTimer < Date.now()){
+						hero.damage();
+						this.shootTimer = Date.now() + 1000;
+					}
 				}
 		}
 		else

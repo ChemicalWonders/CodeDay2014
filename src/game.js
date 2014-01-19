@@ -35,7 +35,7 @@ var main = function(){
 						else
 						{
 								jumped = false;
-								jumpTimer = Date.now() + 2000;
+								jumpTimer = Date.now() + 2500;
 						}
 				}
 
@@ -44,7 +44,7 @@ var main = function(){
 
 
 	kd.Z.down(function() {
-		if(shootTimer < Date.now())
+		if(hero.alive && shootTimer < Date.now())
 			{
 					hero.fire_projectile(stage);
 					shootTimer = Date.now()+300;
