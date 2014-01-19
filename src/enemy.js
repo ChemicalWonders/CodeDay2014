@@ -152,8 +152,8 @@ Enemy.prototype.fireProjectile = function()
 
 Enemy.prototype.getPointInsideBox = function(x, y)
 {
-		return ((x > this.object.position.x && x < this.object.position.x+this.object.hitArea.width)
-						&& (y > this.object.position.y && y < this.object.position.y+this.object.hitArea.height));
+		return ((x > this.object.position.x && x < this.object.position.x+Math.abs(this.object.width))
+						&& (y > this.object.position.y && y < this.object.position.y+Math.abs(this.object.height)));
 
 }
 
