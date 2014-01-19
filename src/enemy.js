@@ -1,24 +1,23 @@
 
 //ENEMY CLASS
 //ADDS ITSELF TO THE STAGE
-
 function Enemy(stage, x,y, direction)
 {
 		var texture = PIXI.Texture.fromImage("static/bunny.png");
 		this.object = new PIXI.Sprite(texture);
-
-		this.shootTimer = Date.now();
 		this.object.position.x = x;
 		this.object.position.y = y;
+		this.object.anchor.x = 0;
+		this.object.anchor.y = 0;
 		this.direction = direction;
-
 		this.stage = stage;
-		this.health = 1;
 		//assign arbitrary hit area
-		this.object.hitArea = new PIXI.Rectangle(0,0,10,10);
+		this.object.hitArea = new PIXI.Rectangle(0,0,this.object.width,this.object.height);
 
 		Enemy.allEnemies.push(this);
 		this.addToStage(stage);
+		this.shootTimer = Date.now();
+		this.health = 1;
 }
 
 
@@ -26,25 +25,39 @@ Enemy.prototype.run = function()
 {
 		//need this function for all types of enemies
 		//try to find the plaayer
-/*
-		if(getDistanceFrom(player) < 500){
-				//shoot at player - do later
-				
-				}
-		else
-				{
-						//move toward player
-						
-				}*/
+
 		//just move him for now
 		//patrol around origional area
+
 		if(this.health > 0)
 		{
-				this.object.position.x += 1;
-				if(this.shootTimer < Date.now()) {
-						this.fireProjectile();
-						this.shootTimer = Date.now() + 1000;
+
+				//make gravity
+				if(this.object.position.y < 500)
+				{
+						this.object.position.y += 4;
 				}
+				if(this.getDistanceFrom(hero) < 500){
+						//shoot at player - do later
+						if(this.shootTimer < Date.now()) {
+								this.fireProjectile();
+								this.shootTimer = Date.now() + 1000;
+						}						
+				}
+				else
+				{
+						//move toward player
+						if(hero.sprite.position.x < this.object.position.x)
+						{
+								//move left
+								this.object.position.x -= 1;
+						}
+						else
+						{
+								this.object.position.x += 1;
+						}
+				}
+				
 				if(this.object.position.y < 500)
 				{
 						this.object.position.y += 4;
@@ -64,46 +77,43 @@ Enemy.prototype.addToStage = function(stage)
 		stage.addChild(this.object);
 }
 
+
 Enemy.prototype.getDistanceFrom = function(player)
 {
 		//get distance from using formulas
-		var distX = player.object.position.x - this.object.position.x;
-		var distY = player.object.position.y - this.object.position.y;
+		var distX = player.sprite.position.x - this.object.position.x;
+		var distY = player.sprite.position.y - this.object.position.y;
 		var ret = Math.sqrt(distX*distX + distY*distY);
 		return ret;
 }
 
+Enemy.prototype.bounding_box = function() {
+    return new PIXI.Rectangle(this.object.position.x, this.object.position.y, this.object.width, this.object.height);
+};
+
 Enemy.prototype.fireProjectile = function()
 {
 		//create a projectile and add that projectil to the objectmanager
-		//set it on a timer
-		
 		var proj = new Projectile(this.stage,
-															this.object.position.x,
-															this.object.position.y,
+															this.object.position.x+10,
+															this.object.position.y+10,
 															5,
-															this.direction, 1000);
-
+															this.direction, 1000, false);
 }
 
-Enemy.prototype.damage = function(modifier)
-{
-		this.health -= modifier;
-}
 
-//Return function
-//to get the bounding box
-Enemy.prototype.getBoundingBox = function()
-{
-		return this.object.hitArea;
-}
-
-//return function
-//to see if specified point is within the collision bounds
 Enemy.prototype.getPointInsideBox = function(x, y)
 {
-		return ((x > this.object.hitArea.x && x < this.object.hitArea.x+this.object.hitArea.width)
-						&& (y > this.object.hitArea.y && y < this.object.hitArea.y+this.object.hitArea.height));
+		return ((x > this.object.position.x && x < this.object.position.x+this.object.hitArea.width)
+						&& (y > this.object.position.y && y < this.object.position.y+this.object.hitArea.height));
+
+}
+
+Enemy.prototype.flipSprite = function()
+{
+		this.direction *= -1;
+		this.sprite.scale.x *= -1;
+		return this;
 }
 
 Enemy.allEnemies = new Array();

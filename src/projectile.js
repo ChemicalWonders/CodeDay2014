@@ -1,7 +1,7 @@
 //PROJECTIEL CLASS
 //DO THIS
 
-function Projectile(stage, x, y, speed, direction, lifetime)
+function Projectile(stage, x, y, speed, direction, lifetime, isplayer)
 {
 		//initialize values
 		var texture = PIXI.Texture.fromImage("static/ball.jpg");
@@ -15,7 +15,8 @@ function Projectile(stage, x, y, speed, direction, lifetime)
 		Projectile.allProjectiles.push(this);
 		this.addToStage(stage);
 		this.endTimer = Date.now() + lifetime;
-		
+
+		this.isPlayer = isplayer;
 
 }
 
@@ -25,20 +26,32 @@ Projectile.prototype.run = function()
 		//shoot in the direction that we were pointing to
 		if(this.endTimer > Date.now())
 		{
-				if(this.direction == -1){
+				if(this.direction == 1){
 						this.object.position.x += this.speed;
 				}
-				else if(this.direction == 1){
+				else if(this.direction == -1){
 						this.object.position.x -= this.speed;
 				}
 				//check for the damaages
-				for(i = 0; i < Enemy.allEnemies.length; i++)
+				if(this.isPlayer)
 				{
-						if(Enemy.allEnemies[i].getPointInsideBox(this.object.position.x,
-																										 this.object.position.y))
+						for(i = 0; i < Enemy.allEnemies.length; i++)
 						{
-								//hit enemy
-								Enemy.allEnemies[i].damage(1);
+								if(Enemy.allEnemies[i].getPointInsideBox(this.object.position.x,
+																												 this.object.position.y))
+								{
+										//hit enemy
+										Enemy.allEnemies[i].damage(1);
+										this.drop();
+								}
+						}
+				}
+				else
+				{
+						//damage the player
+						if(this.collisionPlayer(this.object.position.x,
+																	 this.object.position.y))
+						{
 								this.drop();
 						}
 				}
@@ -52,6 +65,16 @@ Projectile.prototype.run = function()
 Projectile.prototype.addToStage = function(stage)
 {
 		stage.addChild(this.object);
+}
+
+Projectile.prototype.bounding_box = function() {
+    return new PIXI.Rectangle(this.object.position.x, this.object.position.y, this.object.width, this.object.height);
+};
+
+Projectile.prototype.collisionPlayer = function(x, y)
+{
+		return ((x > hero.sprite.position.x && x < hero.sprite.position.x+hero.sprite.width)
+						&& (y > hero.sprite.position.y && y < hero.sprite.position.y+hero.sprite.height));
 }
 
 //self deletion function

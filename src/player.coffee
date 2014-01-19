@@ -3,8 +3,9 @@ class Player
 	@life = 3
 
 	constructor: (@sprite) ->
-		sprite.anchor.x = 0.01
-		sprite.anchor.y = 0.01
+		sprite.anchor.x = 0
+		sprite.anchor.y = 0
+		sprite.position.y = ground_line - sprite.height;
 		@alive = true
 		@health = 6
 		@velocity_x = 0
@@ -17,14 +18,16 @@ class Player
 		@sprite.scale.x *= -1
 		this
 
-	fall: () ->
-		if @velocity_y < 0 and @sprite.position.y > ground_line
-			@sprite.position.y =- 1
-		@velocity_y += 1 if @velocity_y < 0
+	fall: (dy = 0) ->
+		if @sprite.position.y < ground_line
+			@sprite.position.y += 1
+		else
+			@sprite.position.y += dy
+		this
 
-	move_character: (dx = 0) ->
+	move_character: (dx = 0, dy = 0) ->
 		@sprite.position.x += dx
-		@fall()
+		@fall(dy)
 		this
 
 	collision_test_enemy: (enemy) ->
@@ -42,15 +45,27 @@ class Player
 			@alive = false
 		else
 			@health -= 1 if @collison_test(enemy_list)
-			@move_character(@velocity_x)
-			@flip_sprite() if @direction == 0 and @velocity_x < 0
-			@flip_sprite() if @direction == 0 and @velocity_x > 0
+			flip = (@direction == -1 and @velocity_x < 0) or (@direction == 1 and @velocity_x > 0)
+			if flip
+				@move_character(@direction * @sprite.width, 0)
+				@flip_sprite()
+				@move_character(-@direction * @sprite.width, 0)
+
+			@move_character(@velocity_x, @velocity_y) if not flip
 			@velocity_x = 0
 			@velocity_y = 0
 		this
+<<<<<<< HEAD
+ 
+	bounding_box: ->
+		new PIXI.Rectangle(@sprite.position.x, @sprite.position.y, @sprite.width, @sprite.height)
+
+hero = new Player(PIXI.Texture.fromImage('static/bunny.png'))
+=======
 
 	bounding_box: () ->
 		new PIXI.Rectangle(@sprite.position.x, @sprite.position.y, @sprite.width, @sprite.height)
 
 hero_texture = PIXI.Texture.fromImage('static/bunny.png')
 hero = new Player(new PIXI.Sprite(hero_texture))
+>>>>>>> origin/master

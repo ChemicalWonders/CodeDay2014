@@ -8,8 +8,9 @@ Player = (function() {
 
   function Player(sprite) {
     this.sprite = sprite;
-    sprite.anchor.x = 0.01;
-    sprite.anchor.y = 0.01;
+    sprite.anchor.x = 0;
+    sprite.anchor.y = 0;
+    sprite.position.y = ground_line - sprite.height;
     this.alive = true;
     this.health = 6;
     this.velocity_x = 0;
@@ -23,21 +24,27 @@ Player = (function() {
     return this;
   };
 
-  Player.prototype.fall = function() {
-    if (this.velocity_y < 0 && this.sprite.position.y > ground_line) {
-      this.sprite.position.y = -1;
+  Player.prototype.fall = function(dy) {
+    if (dy == null) {
+      dy = 0;
     }
-    if (this.velocity_y < 0) {
-      return this.velocity_y += 1;
+    if (this.sprite.position.y < ground_line) {
+      this.sprite.position.y += 2;
+    } else {
+      this.sprite.position.y += dy;
     }
+    return this;
   };
 
-  Player.prototype.move_character = function(dx) {
+  Player.prototype.move_character = function(dx, dy) {
     if (dx == null) {
       dx = 0;
     }
+    if (dy == null) {
+      dy = 0;
+    }
     this.sprite.position.x += dx;
-    this.fall();
+    this.fall(dy);
     return this;
   };
 
@@ -58,18 +65,21 @@ Player = (function() {
   };
 
   Player.prototype.update = function(enemy_list) {
+    var flip;
     if (this.health <= 0) {
       this.alive = false;
     } else {
       if (this.collison_test(enemy_list)) {
         this.health -= 1;
       }
-      this.move_character(this.velocity_x);
-      if (this.direction === 0 && this.velocity_x < 0) {
+      flip = (this.direction === -1 && this.velocity_x < 0) || (this.direction === 1 && this.velocity_x > 0);
+      if (flip) {
+        this.move_character(this.direction * this.sprite.width, 0);
         this.flip_sprite();
+        this.move_character(-this.direction * this.sprite.width, 0);
       }
-      if (this.direction === 0 && this.velocity_x > 0) {
-        this.flip_sprite();
+      if (!flip) {
+        this.move_character(this.velocity_x, this.velocity_y);
       }
       this.velocity_x = 0;
       this.velocity_y = 0;
@@ -85,6 +95,6 @@ Player = (function() {
 
 })();
 
-hero_texture = PIXI.Texture.fromImage('static/bunny.png');
+hero_texture = PIXI.Texture.fromImage('static/duck1.png');
 
 hero = new Player(new PIXI.Sprite(hero_texture));
