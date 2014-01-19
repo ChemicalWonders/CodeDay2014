@@ -50,10 +50,12 @@ Enemy.prototype.run = function()
 						if(hero.sprite.position.x < this.object.position.x)
 						{
 								//move left
+								this.direction = -1;
 								this.object.position.x -= 1;
 						}
 						else
 						{
+								this.direction = 1;
 								this.object.position.x += 1;
 						}
 				}
@@ -83,6 +85,11 @@ Enemy.prototype.run = function()
 				delete this;
 		}
 }
+
+Enemy.prototype.damage = function(){
+	this.health -= 1;
+}
+
 
 Enemy.prototype.collisionPlayer = function(x, y)
 {

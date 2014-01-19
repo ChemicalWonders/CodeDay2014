@@ -57,6 +57,22 @@ padding-top: 0px;
 padding-right: 0px;   
 padding-left: 0px;
 	  }
+
+	  #mute
+{
+width: 30px;
+height: 30px;
+border: 2px solid;
+opacity:0.9;
+align: center;
+filter:alpha(opacity=27); /* For IE8 and earlier */
+background-color: #356680;
+color: #FFFFFF;
+border-radius: 15px;
+
+}
+
+
 	  
 	  
 	  #inner {
@@ -68,7 +84,7 @@ position: absolute;
 top:450px;
 left:695px;
 }
-	
+
 	</style>
   	<script src = 'bin/pixi.js'></script>
 	<script src = 'bin/underscore-min.js'></script>
@@ -78,9 +94,13 @@ left:695px;
 	<script src = 'src/objectmanager.js'></script>
 	<script src = 'src/projectile.js'></script>
 	<script src = 'src/player.js'></script>
-
-
 	<script src = 'bin/keydrown.min.js'></script>
+
+	<script> 
+	var mySound = new buzz.sound("static/deepjungle.mp3", {
+  autoplay: true,
+  loop: true});
+	</script>
 </head>
 
 <script>
@@ -104,5 +124,7 @@ document.write("</div>");
 			<div align='center'>
 				<canvas id = "game-canvas" width = '1300' height = '650'> &nbsp;</canvas>
 			</div>
+
+			<div id="mute"><span id="1"><img src = "static/mute.png"/></span></div></div><br>
 	</body>
 </html>
