@@ -95,10 +95,6 @@ Player = (function() {
 
 })();
 
-<<<<<<< HEAD
 hero_texture = PIXI.Texture.fromImage('static/duckpower.gif');
-=======
-hero_texture = PIXI.Texture.fromImage('static/duck1.png');
->>>>>>> environ
 
 hero = new Player(new PIXI.Sprite(hero_texture));

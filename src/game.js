@@ -19,22 +19,12 @@ var main = function(){
 	var stage = new PIXI.Stage(0x66FF99);
 	var canvas = document.getElementById('game-canvas');
 	var renderer = PIXI.autoDetectRenderer(canvas.width, canvas.height, canvas);
-<<<<<<< HEAD
-=======
-<<<<<<< .merge_file_nkRIF6
 	
     // Sets up background
-=======
->>>>>>> environ
 
 	stage.addChild(hero.sprite);
 	renderer.render(stage);
 
-
-<<<<<<< HEAD
-=======
->>>>>>> .merge_file_tgMEg6
->>>>>>> environ
 	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");	
 		far = new PIXI.TilingSprite(farTexture, 1300, 650);
 		far.position.x = 0;
@@ -43,21 +33,7 @@ var main = function(){
 		far.tilePosition.y = 0;
 		stage.addChild(far);
 
-
-<<<<<<< HEAD
-=======
-<<<<<<< .merge_file_nkRIF6
-    //file doesn't exist it still works. wat
-    var midTexture = PIXI.Texture.fromImage("static/ignore.png");
-        mid = new PIXI.TilingSprite(midTexture, 0, 0);
-        mid.position.x = 0;
-        mid.position.y = 0;
-        mid.tilePosition.x = 0;
-=======
->>>>>>> environ
-
-
-		hero.update();
+        hero.update();
 
         //file doesn't exist it still works. wat
 		var midTexture = PIXI.Texture.fromImage("static/ignore.png");
@@ -65,7 +41,6 @@ var main = function(){
 		mid.position.x = 0;
 		mid.position.y = 128;
 		mid.tilePosition.x = 0;
->>>>>>> .merge_file_tgMEg6
         mid.tilePosition.y = 0;
         stage.addChild(mid);
 

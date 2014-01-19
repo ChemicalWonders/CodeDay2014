@@ -55,13 +55,6 @@ class Player
 			@velocity_x = 0
 			@velocity_y = 0
 		this
-<<<<<<< HEAD
- 
-	bounding_box: ->
-		new PIXI.Rectangle(@sprite.position.x, @sprite.position.y, @sprite.width, @sprite.height)
-
-hero = new Player(PIXI.Texture.fromImage('static/bunny.png'))
-=======
 
 	bounding_box: () ->
 		new PIXI.Rectangle(@sprite.position.x, @sprite.position.y, @sprite.width, @sprite.height)
