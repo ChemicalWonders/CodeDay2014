@@ -24,36 +24,35 @@ function Projectile(stage, x, y, speed, direction, lifetime, isplayer)
 Projectile.prototype.run = function()
 {
 		//shoot in the direction that we were pointing to
+		var hit = false;
 		if(this.endTimer > Date.now())
 		{
-				if(this.direction == 1){
-						this.object.position.x += this.speed;
-				}
-				else if(this.direction == -1){
-						this.object.position.x -= this.speed;
-				}
+			this.object.position.x += this.speed * this.direction;
 				//check for the damaages
 				if(this.isPlayer)
 				{
 						for(i = 0; i < Enemy.allEnemies.length; i++)
 						{
-								if(Enemy.allEnemies[i].getPointInsideBox(this.object.position.x,
-																												 this.object.position.y))
+								if(this.collisionEnemy(Enemy.allEnemies[i], this.object.x, this.object.y))
 								{
 										//hit enemy
+										hit = true;
 										Enemy.allEnemies[i].damage(1);
-										this.drop();
 								}
 						}
+
 				}
 				else
 				{
 						//damage the player
 						if(this.collisionPlayer(this.object.position.x, this.object.position.y))
 						{
-								hero.health -= 1;
+								hit = true;
 								this.drop();
 						}
+				}
+				if (hit){
+					this.drop();
 				}
 		}
 		else
@@ -76,6 +75,13 @@ Projectile.prototype.collisionPlayer = function(x, y)
 		return ((x >= hero.sprite.position.x && x <= Math.abs(hero.sprite.position.x+hero.sprite.width))
 				&& (y >= hero.sprite.position.y && y <= Math.abs(hero.sprite.position.y+hero.sprite.height)));
 }
+
+Projectile.prototype.collisionEnemy = function(enemy, x, y)
+{
+		return ((x >= enemy.object.position.x && x <= Math.abs(enemy.object.position.x+enemy.object.width))
+						&& (y >= enemy.object.position.y && y <= Math.abs(enemy.object.position.y+enemy.object.height)));
+}
+
 
 Projectile.collision_test = function()
 {

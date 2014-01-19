@@ -11,7 +11,7 @@ var main = function(){
 	renderer.render(stage);
 
 
-	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");	
+	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");
 		far = new PIXI.TilingSprite(farTexture, 1300, 650);
 		far.position.x = 0;
 		far.position.y = 0;
@@ -38,9 +38,6 @@ var main = function(){
 	kd.run(function() {
 		kd.tick();
 	})
-
-
-		hero.update();
 
         //file doesn't exist it still works. wat
 		var midTexture = PIXI.Texture.fromImage("static/ignore.png");

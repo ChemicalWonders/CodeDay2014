@@ -29,15 +29,16 @@ Player = (function() {
       dy = 0;
     }
     if (this.sprite.position.y < ground_line) {
-      this.sprite.position.y += 1;
-    } else {
-      this.sprite.position.y += dy;
+      return this.sprite.position.y += 1;
     }
-    return this;
+  };
+
+  Player.prototype.jump = function() {
+    return this.sprite.position.y += this.sprite.height;
   };
 
   Player.prototype.fire_projectile = function(stage) {
-    return new Projectile(stage, this.sprite.position.x, this.sprite.position.y);
+    return new Projectile(stage, this.sprite.position.x + this.sprite.width, this.sprite.position.y, 5, this.direction, 1000, true);
   };
 
   Player.prototype.move_character = function(dx, dy) {
