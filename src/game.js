@@ -56,14 +56,13 @@ var main = function(){
 		mid.tilePosition.x -= 0.64;
 		renderer.render(stage);
 		console.log(hero.health);
-		objectmanager.run();
+		objectmanager.run(stage);
 		hero.update();
 		renderer.render(stage);
   		requestAnimFrame(update);
 
 	}
 	var enemy = new Enemy(stage, 200,0,-1);
-	var d = new Enemy(stage, 500,200, -1);
 	var objectmanager = new ObjectManager();
 	stage.addChild(hero.sprite);
 	renderer.render(stage);
