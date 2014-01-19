@@ -86,6 +86,11 @@ Enemy.prototype.run = function()
 		}
 }
 
+Enemy.prototype.damage = function(){
+	this.health -= 1;
+}
+
+
 Enemy.prototype.collisionPlayer = function(x, y)
 {
 		return ((x >= hero.sprite.position.x && x <= hero.sprite.position.x+Math.abs(hero.sprite.width))

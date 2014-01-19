@@ -23,7 +23,12 @@ var controls = function(){
 	stage.addChild(hero.sprite);
 	renderer.render(stage);
 
+<<<<<<< HEAD
+
+	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");
+=======
 	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");	
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
 		far = new PIXI.TilingSprite(farTexture, 1300, 650);
 		far.position.x = 0;
 		far.position.y = 0;
@@ -66,9 +71,12 @@ var controls = function(){
 		kd.tick();
 	})
 
+<<<<<<< HEAD
+=======
 
 		hero.update();
 
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
         //file doesn't exist it still works. wat
 		var midTexture = PIXI.Texture.fromImage("static/ignore.png");
 		mid = new PIXI.TilingSprite(midTexture, 512, 256);
