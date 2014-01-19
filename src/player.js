@@ -95,6 +95,6 @@ Player = (function() {
 
 })();
 
-hero_texture = PIXI.Texture.fromImage('static/lovelybunny.png');
+hero_texture = PIXI.Texture.fromImage('static/lovelybunny.jpg');
 
 hero = new Player(new PIXI.Sprite(hero_texture));
