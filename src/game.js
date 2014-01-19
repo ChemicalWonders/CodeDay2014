@@ -12,6 +12,8 @@ var main = function(){
 	});
 	kd.Z.down(function() {
 		hero.fire_projectile(stage);
+		var gunshotsound = new buzz.sound("static/gunshot.mp3");
+		gunshotsound.play();
 	});
 
 	kd.run(function() {
