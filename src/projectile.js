@@ -48,7 +48,7 @@ Projectile.prototype.run = function()
 						//damage the player
 						if(this.collisionPlayer(this.object.position.x, this.object.position.y))
 						{
-								hit = true;
+								//hit = true;
 								this.drop();
 						}
 				}
@@ -103,7 +103,6 @@ Projectile.prototype.drop = function()
 		{
 				Projectile.allProjectiles.splice(i,1);
 		}
-		this.object.position.y-=60;
 		this.object.visible = false;
 		delete this;
 }

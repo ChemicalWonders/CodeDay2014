@@ -8,7 +8,7 @@ var main = function(){
 	});
 
 	kd.X.down(function() {
-	  return hero.velocity_y -= hero.sprite.height/2;
+	  return hero.velocity_y -= hero.sprite.height*2;
 	});
 	kd.Z.down(function() {
 		hero.fire_projectile(stage);
@@ -73,7 +73,7 @@ var main = function(){
   		requestAnimFrame(update);
 
 	}
-	var enemy = new Enemy(stage, 200,0,-1);
+		//var enemy = new Enemy(stage, 200,0,-1);
 	var objectmanager = new ObjectManager();
 	stage.addChild(hero.sprite);
 	renderer.render(stage);
