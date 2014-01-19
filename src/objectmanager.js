@@ -13,16 +13,16 @@ var collision_test = function(obj1, obj2) {
 ObjectManager.prototype.run = function(stage)
 {
     //run thru all objects
-    for(i = 0; i < Enemy.allEnemies.length; i++){
+    for(var i = 0; i < Enemy.allEnemies.length; i++){
         Enemy.allEnemies[i].run(hero);
     }
-    for(i = 0; i < Projectile.allProjectiles.length; i++)
+    for(var i = 0; i < Projectile.allProjectiles.length; i++)
     {
         Projectile.allProjectiles[i].run();
 
     }
-		if(Enemy.allEnemies.length < 5)
-		{
-				//new Enemy(stage, Math.random() * 1400, 400,-1);
-		}
+        if(Enemy.allEnemies.length < 5)
+        {
+                new Enemy(stage, Math.random() * 1400+500, 400,-1);
+        }
 }

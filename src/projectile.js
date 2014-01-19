@@ -33,17 +33,16 @@ Projectile.prototype.run = function()
 				//check for the damaages
 				if(this.isPlayer)
 				{
-						/*
-						for(i = 0; i < Enemy.allEnemies.length; i++)
+
+						for(var i = 0; i < Enemy.allEnemies.length; i++)
 						{
-								
-								if(this.collisionEnemy(Enemy.allEnemies[i], this.object.x, this.object.y))
+								if(Enemy.allEnemies[i].getPointInsideBox(this.object.position.x, this.object.position.y))
 								{
 										//hit enemy
 										hit = true;
 										Enemy.allEnemies[i].damage(1);
 								}
-						}*/
+						}
 
 				}
 				else
@@ -52,6 +51,7 @@ Projectile.prototype.run = function()
 						if(this.collisionPlayer(this.object.position.x, this.object.position.y))
 						{
 								//hit = true;
+								hero.damage()
 								this.drop();
 						}
 				}
@@ -111,5 +111,3 @@ Projectile.prototype.drop = function()
 }
 
 Projectile.allProjectiles = new Array();
-
-

@@ -18,6 +18,7 @@ function Enemy(stage, x,y, direction)
 		this.addToStage(stage);
 		this.shootTimer = Date.now();
 		this.health = 1;
+		this.damageTimer = Date.now();
 }
 
 
@@ -32,20 +33,6 @@ Enemy.prototype.run = function()
 		if(this.health > 0)
 		{
 
-				//make gravity
-				if(this.object.position.y < 500)
-				{
-						this.object.position.y += 4;
-				}
-				if(this.getDistanceFrom(hero) < 500){
-						//shoot at player - do later
-						if(this.shootTimer < Date.now()) {
-								this.fireProjectile();
-								this.shootTimer = Date.now() + 1000;
-						}
-				}
-				else
-				{
 						//move toward player
 						if(hero.sprite.position.x < this.object.position.x)
 						{
@@ -58,6 +45,31 @@ Enemy.prototype.run = function()
 								this.direction = 1;
 								this.object.position.x += 1;
 						}
+				//make gravity
+				if(this.object.position.y < 500)
+				{
+						//this.object.position.y += 0.005;
+				}
+				if(this.getDistanceFrom(hero) < 400){
+						//shoot at player - do later
+						if(this.shootTimer < Date.now()) {
+								this.fireProjectile();
+								this.shootTimer = Date.now() + 1000;
+						}
+				}
+				else
+				{
+
+						if(hero.sprite.position.y > this.object.position.y)
+						{
+								//move left
+								this.object.position.y += 4;
+						}
+						else
+
+						{
+								this.object.position.y -= 4;
+						}
 				}
 
 				if(this.object.position.y < 500)
@@ -67,8 +79,10 @@ Enemy.prototype.run = function()
 
 				if(this.collisionPlayer(this.object.position.x, this.object.position.y))
 				{
-
-					hero.health -= 1;
+					if(this.damageTimer < Date.now()){
+						hero.damage();
+						this.damageTimer = Date.now() + 1000;
+					}
 				}
 		}
 		else
