@@ -32,16 +32,23 @@ Projectile.prototype.run = function()
 						this.object.position.x -= this.speed;
 				}
 				//check for the damaages
-				
-				for(i = 0; i < Enemy.allEnemies.length; i++)
+				if(this.isPlayer)
 				{
-						if(Enemy.allEnemies[i].getPointInsideBox(this.object.position.x,
-																										 this.object.position.y))
+						for(i = 0; i < Enemy.allEnemies.length; i++)
 						{
-								//hit enemy
-								Enemy.allEnemies[i].damage(1);
-								this.drop();
+								if(Enemy.allEnemies[i].getPointInsideBox(this.object.position.x,
+																												 this.object.position.y))
+								{
+										//hit enemy
+										Enemy.allEnemies[i].damage(1);
+										this.drop();
+								}
 						}
+				}
+				else
+				{
+						//damage the player
+						
 				}
 		}
 		else

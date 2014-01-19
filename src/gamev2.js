@@ -24,6 +24,7 @@
 
         requestAnimFrame( animate );
 				objectmanager.run();
+				//hero.update();
         document.addEventListener('keydown',function(event){
             if(event.keyCode == 37 || event.keyCode == 65) {
                 bunny.position.x -= 0.005;
