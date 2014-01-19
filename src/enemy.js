@@ -6,6 +6,8 @@ function Enemy(stage, x,y, direction)
 {
 		var texture = PIXI.Texture.fromImage("static/bunny.png");
 		this.object = new PIXI.Sprite(texture);
+
+		this.shootTimer = Date.now();
 		this.object.position.x = x;
 		this.object.position.y = y;
 		this.direction = direction;
@@ -37,7 +39,10 @@ Enemy.prototype.run = function()
 		//patrol around origional area
 
 		this.object.position.x += 1;
-		this.fireProjectile();
+		if(this.shootTimer < Date.now()) {
+				this.fireProjectile();
+				this.shootTimer = Date.now() + 1000;
+		}
 }
 
 Enemy.prototype.addToStage = function(stage)
@@ -57,11 +62,13 @@ Enemy.prototype.getDistanceFrom = function(player)
 Enemy.prototype.fireProjectile = function()
 {
 		//create a projectile and add that projectil to the objectmanager
+		//set it on a timer
+		
 		var proj = new Projectile(this.stage,
 															this.object.position.x,
 															this.object.position.y,
-															10,
-															this.direction);
+															5,
+															this.direction, 1000);
 
 }
 

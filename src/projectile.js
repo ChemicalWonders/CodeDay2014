@@ -1,7 +1,7 @@
 //PROJECTIEL CLASS
 //DO THIS
 
-function Projectile(stage, x, y, speed, direction)
+function Projectile(stage, x, y, speed, direction, lifetime)
 {
 		//initialize values
 		var texture = PIXI.Texture.fromImage("static/ball.jpg");
@@ -14,17 +14,26 @@ function Projectile(stage, x, y, speed, direction)
 		this.stage = stage;
 		Projectile.allProjectiles.push(this);
 		this.addToStage(stage);
+		this.endTimer = Date.now() + lifetime;
 }
 
 
 Projectile.prototype.run = function()
 {
 		//shoot in the direction that we were pointing to
-		if(this.direction == -1){
-				this.object.position.x += this.speed;
+		if(this.endTimer > Date.now())
+		{
+				if(this.direction == -1){
+						this.object.position.x += this.speed;
+				}
+				else if(this.direction == 1){
+						this.object.position.x -= this.speed;
+				}
 		}
-		else if(this.direction == 1){
-				this.object.position.x -= this.speed;
+		else
+		{
+				//kill
+				
 		}
 }
 
