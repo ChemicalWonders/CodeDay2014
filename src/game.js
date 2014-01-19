@@ -1,22 +1,29 @@
 
 
 (function(){
-	var stage = new PIXI.Stage(0x066FF99);
-	var renderer = PIXI.autoDetectRenderer(1500, 625);
+    var interactive = true;
+	var stage = new PIXI.Stage(0x066FF88, interactive);
+	var renderer = PIXI.autoDetectRenderer(400, 300);
+
 	document.body.appendChild(renderer.view);
 	requestAnimFrame(animate);
 
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("static/bunny.png");
+    var texture = PIXI.Texture.fromImage("static/bunny.png.jpg");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
-		var person = new Person();
+	var person = new Person();
     // center the sprites anchor point
     bunny.anchor.x = 0.5;
     bunny.anchor.y = 0.5;
 
+    //Setting Interactivity
+    bunny.setInteractive(true);
+    bunny.buttonMode = true;
+
+
     // move the sprite t the center of the screen
-    bunny.position.x = 200;
+    bunny.position.x = 150;
     bunny.position.y = 150;
 
     stage.addChild(bunny);
@@ -25,6 +32,16 @@
 
         requestAnimFrame( animate );
 
+
+        bunny.click = function(mouseData){
+           console.log("CLICK!");
+           if (bunny.alpha){
+           bunny.alpha = 0;
+            }
+            else {
+                bunny.alpha = 1;
+            }
+        }
 
         document.addEventListener('keydown',function(event){
             if(event.keyCode == 37 || event.keyCode == 65) {
