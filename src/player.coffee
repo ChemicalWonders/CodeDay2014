@@ -28,7 +28,7 @@ class Player
 		@sprite.position.y += @sprite.height
 
 	fire_projectile: (stage) ->
-		new Projectile(stage, @sprite.position.x + @sprite.width, @sprite.position.y, 5, @direction, 1000, true)
+		new Projectile(stage, @sprite.position.x + (-@direction*@sprite.width), @sprite.position.y, 5, -@direction, 1000, true)
 
 	move_character: (dx = 0, dy = 0) ->
 		@sprite.position.x += dx
@@ -43,6 +43,7 @@ class Player
 	update: () ->
 		if @health <= 0
 			@alive = false
+			@sprite.tint = 0x000080
 		else
 			if Date.now() > @damage_timer
 				@sprite.tint = 0xFF0000
