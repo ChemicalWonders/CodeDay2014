@@ -63,6 +63,7 @@ var main = function(){
 
 	}
 	var enemy = new Enemy(stage, 200,0,-1);
+	var d = new Enemy(stage, 500,200, -1);
 	var objectmanager = new ObjectManager();
 	stage.addChild(hero.sprite);
 	renderer.render(stage);
