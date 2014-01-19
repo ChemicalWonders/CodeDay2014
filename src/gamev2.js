@@ -11,8 +11,7 @@
 
 		var person = new Player(0,0);
 		var objectmanager = new ObjectManager();
-		var enemy = new Enemy(200,0);
-		objectmanager.addEnemy(enemy);
+		var enemy = new Enemy(stage, 200,0);
 
 
 		person.addToStage(stage);
