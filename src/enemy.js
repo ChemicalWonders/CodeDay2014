@@ -81,7 +81,7 @@ Enemy.prototype.run = function()
 				{
 					if(this.damageTimer < Date.now()){
 						hero.damage();
-						this.shootTimer = Date.now() + 1000;
+						this.damageTimer = Date.now() + 1000;
 					}
 				}
 		}
