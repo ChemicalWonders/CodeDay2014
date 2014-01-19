@@ -100,16 +100,6 @@ left:695px;
 	var mySound = new buzz.sound("static/deepjungle.mp3", {
   autoplay: true,
   loop: true});
-
-	$(document).ready(function(){
-  	$("#1").click(function(){
-    if (!mySound.isPaused()){
-      mySound.stop();
-  }
-    else{
-      mySound.play();
-    }
-  })};
 	</script>
 </head>
 
@@ -137,5 +127,4 @@ document.write("</div>");
 
 			<div id="mute"><span id="1"><img src = "static/mute.png"/></span></div></div><br>
 	</body>
-	</script>
 </html>
