@@ -38,6 +38,7 @@ var main = function(){
 	kd.LEFT.down(function() {
 	  hero.velocity_x -= 8;
 	});
+<<<<<<< HEAD
 
 	kd.RIGHT.down(function() {
 	   hero.velocity_x += 8;
@@ -51,6 +52,21 @@ var main = function(){
 	  hero.fire_projectile(stage);
 	});
 
+=======
+
+	kd.RIGHT.down(function() {
+	   hero.velocity_x += 8;
+	});
+
+	kd.X.down(function() {
+	  hero.velocity_y -= hero.sprite.height;
+	});
+
+	kd.Z.down(function() {
+	  hero.fire_projectile(stage);
+	});
+
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
 	kd.run(function() {
 		kd.tick();
 	})
@@ -69,22 +85,29 @@ var main = function(){
         stage.addChild(mid);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         // platform
        var platTexture = PIXI.Texture.fromImage("static/block.jpg");
         plat = new PIXI.TilingSprite(platTexture,1300,50);
 =======
+=======
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
     // Rectangle block 
     var rectBlock = PIXI.Rectangle(0, 600, 1300, 50);
     
     // Tiles/Platforms texture
     var platTexture = PIXI.Texture.fromImage("static/stoneBlock.jpg");
         plat = new PIXI.TilingSprite(platTexture, 1300, 50);
+<<<<<<< HEAD
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
+=======
 >>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
         plat.position.x = 0;
         plat.position.y = 600;
         plat.tilePosition.x = 0;
         plat.tilePosition.y = 0;
         stage.addChild(plat);
+<<<<<<< HEAD
 <<<<<<< HEAD
         requestAnimFrame(update);
 
@@ -93,6 +116,8 @@ var main = function(){
 		mid.tilePosition.x -= 0.64;
 		plat.tilePosition.x -= 0.100;
 =======
+=======
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
 
         requestAnimFrame(update);
 
@@ -101,6 +126,9 @@ var main = function(){
 		far.tilePosition.x -= 0.128;
 		mid.tilePosition.x -= 0.64;
         plat.tilePosition.x -= 0.128;
+<<<<<<< HEAD
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
+=======
 >>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
 		renderer.render(stage);
 		console.log(hero.health);
