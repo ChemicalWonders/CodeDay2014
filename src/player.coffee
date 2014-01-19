@@ -3,8 +3,9 @@ class Player
 	@life = 3
 
 	constructor: (@sprite) ->
-		sprite.anchor.x = 0.01
-		sprite.anchor.y = 0.01
+		sprite.anchor.x = 0
+		sprite.anchor.y = 0
+		sprite.position.y = ground_line - sprite.height;
 		@alive = true
 		@health = 6
 		@velocity_x = 0
@@ -18,9 +19,11 @@ class Player
 		this
 
 	fall: () ->
-		if @velocity_y < 0 and @sprite.position.y > ground_line
-			@sprite.position.y =- 1
-		@velocity_y += 1 if @velocity_y < 0
+		if @sprite.position.y < ground_line
+			@sprite.position.y += 4
+		else
+			@sprite.position.y += velocity_y
+		this
 
 	move_character: (dx = 0) ->
 		@sprite.position.x += dx

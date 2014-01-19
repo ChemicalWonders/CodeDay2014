@@ -14,6 +14,8 @@ function Enemy(stage, x,y, direction)
 
 		Enemy.allEnemies.push(this);
 		this.addToStage(stage);
+		this.shootTimer = Date.now();
+		this.health = 1;
 }
 
 
@@ -27,14 +29,31 @@ Enemy.prototype.run = function()
 				
 				}
 		else
-				{
-						//move toward player
-						
-				}*/
+		{
+		//move toward player
+		
+		}*/
 		//just move him for now
 		//patrol around origional area
-
-		this.object.position.x += 1;
+		if(this.health > 0)
+		{
+				this.object.position.x += 1;
+				if(this.shootTimer < Date.now()) {
+						this.fireProjectile();
+						this.shootTimer = Date.now() + 1000;
+				}
+				if(this.object.position.y < 500)
+				{
+						this.object.position.y += 4;
+				}
+		}
+		else
+		{
+				//kill
+				//remove from the list
+				this.object.visible = false;
+				delete this;
+		}
 		this.fireProjectile();
 }
 
@@ -43,7 +62,6 @@ Enemy.prototype.addToStage = function(stage)
 		stage.addChild(this.object);
 }
 
-Emn
 
 Enemy.prototype.getDistanceFrom = function(player)
 {
@@ -64,8 +82,15 @@ Enemy.prototype.fireProjectile = function()
 		var proj = new Projectile(this.stage,
 															this.object.position.x,
 															this.object.position.y,
-															10,
+															5,
 															this.direction);
 }
+
+Enemy.prototype.getPointInsideBox = function(x, y)
+{
+				return ((x > this.object.hitArea.x && x < this.object.hitArea.x+this.object.hitArea.width)
+								&& (y > this.object.hitArea.y && y < this.object.hitArea.y+this.object.hitArea.height));
+}
+
 
 Enemy.allEnemies = new Array();

@@ -8,8 +8,9 @@ Player = (function() {
 
   function Player(sprite) {
     this.sprite = sprite;
-    sprite.anchor.x = 0.01;
-    sprite.anchor.y = 0.01;
+    sprite.anchor.x = 0;
+    sprite.anchor.y = 0;
+    sprite.position.y = ground_line - sprite.height;
     this.alive = true;
     this.health = 6;
     this.velocity_x = 0;
@@ -24,12 +25,12 @@ Player = (function() {
   };
 
   Player.prototype.fall = function() {
-    if (this.velocity_y < 0 && this.sprite.position.y > ground_line) {
-      this.sprite.position.y = -1;
+    if (this.sprite.position.y < ground_line) {
+      this.sprite.position.y += 4;
+    } else {
+      this.sprite.position.y += velocity_y;
     }
-    if (this.velocity_y < 0) {
-      return this.velocity_y += 1;
-    }
+    return this;
   };
 
   Player.prototype.move_character = function(dx) {
