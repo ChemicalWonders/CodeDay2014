@@ -10,7 +10,7 @@
 
 		var person = new Player(0,0);
 		var objectmanager = new ObjectManager();
-		var enemy = new Enemy(stage, 200,0);
+		var enemy = new Enemy(stage, 200,0, 1);
 
 
 		person.addToStage(stage);
