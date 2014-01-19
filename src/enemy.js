@@ -1,12 +1,20 @@
 
 //ENEMY CLASS
 //ADDS ITSELF TO THE STAGE
+<<<<<<< HEAD
 function Enemy(stage, x,y)
+=======
+function Enemy(stage, x,y, direction)
+>>>>>>> origin/master
 {
 		var texture = PIXI.Texture.fromImage("static/bunny.png");
 		this.object = new PIXI.Sprite(texture);
 		this.object.position.x = x;
 		this.object.position.y = y;
+<<<<<<< HEAD
+=======
+		this.direction = direction;
+>>>>>>> origin/master
 		this.stage = stage;
 		//assign arbitrary hit area
 		this.object.hitArea = new PIXI.Rectangle(0,0,10,10);
@@ -58,7 +66,11 @@ Enemy.prototype.fireProjectile = function()
 															this.object.position.x,
 															this.object.position.y,
 															10,
+<<<<<<< HEAD
 															0);
+=======
+															this.direction);
+>>>>>>> origin/master
 }
 
 Enemy.allEnemies = new Array();

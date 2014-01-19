@@ -1,5 +1,4 @@
 
-
 (function(){
 	var stage = new PIXI.Stage(0x066FF99);
 	var renderer = PIXI.autoDetectRenderer(1500, 625);
@@ -11,7 +10,11 @@
 
 		var person = new Player(0,0);
 		var objectmanager = new ObjectManager();
+<<<<<<< HEAD
 		var enemy = new Enemy(stage, 200,0);
+=======
+		var enemy = new Enemy(stage, 200,0, 1);
+>>>>>>> origin/master
 
 
 		person.addToStage(stage);

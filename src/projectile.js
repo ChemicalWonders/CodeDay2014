@@ -20,7 +20,16 @@ function Projectile(stage, x, y, speed, direction)
 Projectile.prototype.run = function()
 {
 		//shoot in the direction that we were pointing to
+<<<<<<< HEAD
 		this.object.position.x += this.speed;
+=======
+		if(!this.direction){
+				this.object.position.x += this.speed;
+		}
+		else if(this.direction == 1){
+				this.object.position.x -= this.speed;
+		}
+>>>>>>> origin/master
 }
 
 Projectile.prototype.addToStage = function(stage)
