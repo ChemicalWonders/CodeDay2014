@@ -3,14 +3,14 @@ var main = function(){
 		var jumpTimer = Date.now();
 		var jumped = false;
 	kd.LEFT.down(function() {
-      far.tilePosition.x += 4.5;  
+      far.tilePosition.x += 4.5;
       mid.tilePosition.x += 0.65;
       plat.tilePosition.x += 4.5;
 	  return hero.velocity_x -= 8;
 	});
 
 	kd.RIGHT.down(function() {
-      far.tilePosition.x -= 4.5;  
+      far.tilePosition.x -= 4.5;
       mid.tilePosition.x -= 0.65;
       plat.tilePosition.x -= 4.5;
 	  return hero.velocity_x += 8;
@@ -21,7 +21,7 @@ var main = function(){
 			if(jumpTimer < Date.now() && !jumped)
 			{
 					timer = Date.now() + 100;
-					jumped = true;	
+					jumped = true;
 			}
 			else if(jumped)
 			{
@@ -31,14 +31,12 @@ var main = function(){
 					{
 							jumped = false;
 							jumpTimer = Date.now() + 2000;
-							}
+					}
 			}
 
 	});
 
-	kd.DOWN.down(function() {
-	  return hero.velocity_y += 8;
-	});
+
 
 	kd.Z.down(function() {
 		if(shootTimer < Date.now())
@@ -56,13 +54,12 @@ var main = function(){
 	var stage = new PIXI.Stage(0x66FF99);
 	var canvas = document.getElementById('game-canvas');
 	var renderer = PIXI.autoDetectRenderer(canvas.width, canvas.height, canvas);
-	
     // Sets up background
 
 	stage.addChild(hero.sprite);
 	renderer.render(stage);
 
-	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");	
+	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");
 		far = new PIXI.TilingSprite(farTexture, 1300, 650);
 		far.position.x = 0;
 		far.position.y = 0;

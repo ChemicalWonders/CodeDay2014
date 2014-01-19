@@ -50,7 +50,7 @@ Player = (function() {
       dy = 0;
     }
     this.sprite.position.x += dx;
-    this.sprite.position.y += dy;
+    this.fall(dy);
     return this;
   };
 

@@ -32,8 +32,7 @@ class Player
 
 	move_character: (dx = 0, dy = 0) ->
 		@sprite.position.x += dx
-		@sprite.position.y += dy
-		#@fall(dy)
+		@fall(dy)
 		this
 
 	damage:(damage = 1) ->
