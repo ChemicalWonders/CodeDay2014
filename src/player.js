@@ -39,11 +39,7 @@ Player = (function() {
   };
 
   Player.prototype.fire_projectile = function(stage) {
-<<<<<<< HEAD
     return new Projectile(stage, this.sprite.position.x + (-this.direction * this.sprite.width), this.sprite.position.y, 5, -this.direction, 1000, true);
-=======
-    return new Projectile(stage, this.sprite.position.x + this.sprite.width, this.sprite.position.y, 7, -this.direction, 2000, true);
->>>>>>> e3e478bf878e0af7ed695a69427f98716eb343c5
   };
 
   Player.prototype.move_character = function(dx, dy) {
