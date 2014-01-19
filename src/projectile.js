@@ -28,6 +28,7 @@ Projectile.prototype.run = function()
 		if(this.endTimer > Date.now())
 		{
 			this.object.position.x += this.speed * this.direction;
+				this.object.position.y += (Math.random()*10)-5;
 				//check for the damaages
 				if(this.isPlayer)
 				{
@@ -48,7 +49,7 @@ Projectile.prototype.run = function()
 						//damage the player
 						if(this.collisionPlayer(this.object.position.x, this.object.position.y))
 						{
-								hit = true;
+								//hit = true;
 								this.drop();
 						}
 				}
@@ -103,7 +104,6 @@ Projectile.prototype.drop = function()
 		{
 				Projectile.allProjectiles.splice(i,1);
 		}
-		this.object.position.y-=60;
 		this.object.visible = false;
 		delete this;
 }
