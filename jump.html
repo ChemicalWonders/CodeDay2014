@@ -186,7 +186,17 @@ color:#000000;
   font-family: "Bad Script";
   padding-top: -20px;
   z-index: 52;
-}	
+}        
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:hover
+{
+color:#000000;
+}
 
 </style>
 
@@ -225,13 +235,24 @@ glow(); //RUNS THE FUNCTION UPON PAGE LOAD
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 </script>
+
+<script>
+function playSound(){
+    var snd=document.getElementById('noise');
+    canPlayMP3 = (typeof snd.canPlayType === "function" && snd.canPlayType("audio/mpeg") !== "");
+    snd.src=canPlayMP3?'smash.mpeg':'smash.ogg';
+    snd.load();
+    snd.play();
+}
+</script>
+
 <script>
 
 $(document).ready(function(){
   $("#1").click(function(){
   $("#maincontainer").replaceWith( "<div id='div1'></div>");
     $("#data_container").load("description.html #1");
-	$("#content").load("resume.html");
+        $("#content").load("resume.html");
   });
 });
 
@@ -259,12 +280,14 @@ $(document).ready(function(){
   });
 });
 
+
+
 </script>
 </head>
 
 <body>
 <div id="gamecontainer">
-<div id="start" value="start"><div align="left"><span id="1">START NEW GAME</span></div></div><br>
+<div id="start" value="start"><div align="left"><span id="1"><a href="index.html">START NEW GAME</a></span></div></div><br>
 <div id="button2"><div align="left"><span id="2">HOW TO PLAY</span></div></div><br>
 <div id="button3"><div align="left"><span id="3">STORY</span></div></div><br>
 <div id="button4"><div align="left"><span id="4">CREDITS</span></div></div><br>
