@@ -73,7 +73,7 @@ Projectile.prototype.bounding_box = function() {
 
 Projectile.prototype.collisionPlayer = function(x, y)
 {
-		return ((x >= hero.sprite.position.x && x <= Math.abs(hero.sprite.position.x+hero.sprite.width))
+		return ((x >= hero.sprite.position.x && x <= Math.abs(hero.sprite.position.x+Math.abs(hero.sprite.width)))
 				&& (y >= hero.sprite.position.y && y <= Math.abs(hero.sprite.position.y+hero.sprite.height)));
 }
 
