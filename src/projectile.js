@@ -1,7 +1,7 @@
 //PROJECTIEL CLASS
 //DO THIS
 
-function Projectile(stage, x, y, speed, direction, lifetime)
+function Projectile(stage, x, y, speed, direction, lifetime, isplayer)
 {
 		//initialize values
 		var texture = PIXI.Texture.fromImage("static/ball.jpg");
@@ -15,7 +15,7 @@ function Projectile(stage, x, y, speed, direction, lifetime)
 		Projectile.allProjectiles.push(this);
 		this.addToStage(stage);
 		this.endTimer = Date.now() + lifetime;
-		
+		this.isPlayer = isplayer;
 
 }
 
@@ -32,6 +32,7 @@ Projectile.prototype.run = function()
 						this.object.position.x -= this.speed;
 				}
 				//check for the damaages
+				
 				for(i = 0; i < Enemy.allEnemies.length; i++)
 				{
 						if(Enemy.allEnemies[i].getPointInsideBox(this.object.position.x,

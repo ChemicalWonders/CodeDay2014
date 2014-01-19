@@ -38,12 +38,18 @@ Enemy.prototype.run = function()
 				}*/
 		//just move him for now
 		//patrol around origional area
+
 		if(this.health > 0)
 		{
 				this.object.position.x += 1;
 				if(this.shootTimer < Date.now()) {
 						this.fireProjectile();
 						this.shootTimer = Date.now() + 1000;
+				}
+				//make gravity
+				if(this.object.position.y < 500)
+				{
+						this.object.position.y += 4;
 				}
 		}
 		else
@@ -79,7 +85,7 @@ Enemy.prototype.fireProjectile = function()
 															this.object.position.y,
 															5,
 															this.direction, 1000);
-
+ 
 }
 
 Enemy.prototype.damage = function(modifier)
