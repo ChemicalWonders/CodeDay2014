@@ -23,16 +23,7 @@ Enemy.prototype.run = function()
 {
 		//need this function for all types of enemies
 		//try to find the plaayer
-/*
-		if(getDistanceFrom(player) < 500){
-				//shoot at player - do later
-				
-				}
-		else
-		{
-		//move toward player
-		
-		}*/
+
 		//just move him for now
 		//patrol around origional area
 
@@ -44,7 +35,6 @@ Enemy.prototype.run = function()
 				{
 						this.object.position.y += 4;
 				}
-				/*
 				if(this.getDistanceFrom(hero) < 500){
 						//shoot at player - do later
 						if(this.shootTimer < Date.now()) {
@@ -65,7 +55,7 @@ Enemy.prototype.run = function()
 								this.object.position.x += 1;
 						}
 				}
-				*/
+				
 				if(this.object.position.y < 500)
 				{
 						this.object.position.y += 4;
@@ -89,8 +79,8 @@ Enemy.prototype.addToStage = function(stage)
 Enemy.prototype.getDistanceFrom = function(player)
 {
 		//get distance from using formulas
-		var distX = player.object.position.x - this.object.position.x;
-		var distY = player.object.position.y - this.object.position.y;
+		var distX = player.sprite.position.x - this.object.position.x;
+		var distY = player.sprite.position.y - this.object.position.y;
 		var ret = Math.sqrt(distX*distX + distY*distY);
 		return ret;
 }
