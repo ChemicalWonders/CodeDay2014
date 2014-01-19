@@ -2,11 +2,11 @@
 <html>
 <head>
 	<title>pixi.js example 1</title>
-	
+
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=BenchNine">
 
 <script src="http://wcetdesigns.com/assets/javascript/jquery.js"></script>
-<script> 
+<script>
 var mn = 3; //MINIMUM SHADOW BLUR
 var mx = 10; //MAXIMUM SHADOW BLUR
 var loop = (mx-mn)+1; //LOOP GOING UP AND DOWN
@@ -17,14 +17,14 @@ function glow(){
   x++; //CONSTANTLY INCREMENTING
   var g = (x%(loop*2)); //TO KEEP THE PIXELS GOING UP AND DOWN SMOOTHLY
 
-   //IF AT THE MINIMUM, EXPAND SHADOW 
+   //IF AT THE MINIMUM, EXPAND SHADOW
   if(g>=0&&g<=loop-1){
     if(g==0){
       p = mn-1;
     }
     p++;
   }
-   //IF AT THE MAXIMUM, DIMINISH SHADOW 
+   //IF AT THE MAXIMUM, DIMINISH SHADOW
   if(g>=loop&&g<=(loop*2)-1){
     if(g==loop){
       p = mx+1;
@@ -32,31 +32,26 @@ function glow(){
     p--;
   }
 
-   //ALTERS THE GLOW OF THE TEXT, EVERY 150 MILLISECONDS 
+   //ALTERS THE GLOW OF THE TEXT, EVERY 150 MILLISECONDS
   $("#glo_txt").css({"text-shadow":"0 0 "+p+"px #12495d"}).html(v);
   setTimeout("glow()", 150);
 }
 glow(); //RUNS THE FUNCTION UPON PAGE LOAD
-</script> 
-<style> 
+</script>
+<style>
 #glo_txt {
   color: #ffffff;
   font-size: 45px;
   font-weight: bold;
   text-shadow: 0 0 3px #12495d;
   font-family: "BenchNine";
-}	
-	
-	
-	
+}
 	<style>
 		body {
 			margin: 0;
 			padding: 0;
-			
 		}
-		
-		
+
 	#gamecontainer
 	{
 	border:2px solid;
@@ -71,34 +66,33 @@ glow(); //RUNS THE FUNCTION UPON PAGE LOAD
 	width: 1300px;
 	background-color: #000000;
 	}
-		
 
-	
+
+
 	#item{
 	position: absolute;
 	top: 400px;
 	left: 900px;
-	
-	}
 
-	
+	}
 	</style>
- 
-  <script src = 'bin/pixi.js'></script>
-  <script src = 'bin/underscore-min.js'></script>
-  <script src = 'bin/jquery-min.js'></script>
+	<script src=  "bin/pixi.js"></script>
+  	<script src = 'bin/pixi.js'></script>
+	<script src = 'bin/underscore-min.js'></script>
+	<script src = 'bin/jquery-min.js'></script>
+	<script src = 'src/game.js'></script>
+	<script src = 'src/enemy.js'></script>
 	<script src = 'src/player.js'></script>
+	<script src = 'bin/keydrown.min.js'></script>
 </head>
 <body>
-	
-	<div id="gamecontainer">
-	<span id="glo_txt">&nbsp;...loading Level 1 (THE CAVE)</span>
-	
-	<img src="static/scroll.png" id="item">
-	
-	<script src = 'src/game.js'></script>
 
-	</div>
-	
+
+</head>
+	<body onload = 'main()'>
+			<div align='center'>
+				<canvas id = 'game-canvas' width = '512' height = '384'> <canvas>
+			</div>
 	</body>
+	</script>
 </html>
