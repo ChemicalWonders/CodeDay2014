@@ -5,9 +5,10 @@ class Player
 	constructor: (@sprite) ->
 		sprite.anchor.x = 0
 		sprite.anchor.y = 0
+		sprite.position.x = 650
 		sprite.position.y = ground_line - sprite.height;
 		@alive = true
-		@health = 6
+		@health = 12
 		@velocity_x = 0
 		@velocity_y = 0
 		@direction  = 1 #facing right
@@ -28,7 +29,7 @@ class Player
 		@sprite.position.y += @sprite.height
 
 	fire_projectile: (stage) ->
-		new Projectile(stage, @sprite.position.x + (-@direction*@sprite.width), @sprite.position.y, 5, -@direction, 1000, true)
+		new Projectile(stage, @sprite.position.x + (-@direction*@sprite.width), @sprite.position.y, 20, -@direction, 1000, true)
 
 	move_character: (dx = 0, dy = 0) ->
 		@sprite.position.x += dx
@@ -52,7 +53,6 @@ class Player
 			console.log(@health)
 			flip = (@direction == -1 and @velocity_x < 0) or (@direction == 1 and @velocity_x > 0)
 			if flip
-				@move_character(@direction * @sprite.width, 0)
 				@flip_sprite()
 
 			@move_character(@velocity_x, @velocity_y) if not flip

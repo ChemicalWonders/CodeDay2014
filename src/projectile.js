@@ -41,6 +41,7 @@ Projectile.prototype.run = function()
 										//hit enemy
 										hit = true;
 										Enemy.allEnemies[i].damage(1);
+										this.drop();
 								}
 						}
 
@@ -64,7 +65,6 @@ Projectile.prototype.run = function()
 				this.drop();
 		}
 }
-
 Projectile.prototype.addToStage = function(stage)
 {
 		stage.addChild(this.object);

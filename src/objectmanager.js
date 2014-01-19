@@ -14,7 +14,7 @@ ObjectManager.prototype.run = function(stage)
 {
     //run thru all objects
     for(var i = 0; i < Enemy.allEnemies.length; i++){
-        Enemy.allEnemies[i].run(hero);
+        Enemy.allEnemies[i].run();
     }
     for(var i = 0; i < Projectile.allProjectiles.length; i++)
     {
@@ -23,6 +23,7 @@ ObjectManager.prototype.run = function(stage)
     }
         if(Enemy.allEnemies.length < 5)
         {
-                new Enemy(stage, Math.random() * 1400+500, 400,-1);
+                new Enemy(stage, (Math.random() * 1400) * -1, 500,-1);
+                new Enemy(stage, (Math.random() * 1400+800) , 500,-1);
         }
 }
