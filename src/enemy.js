@@ -44,7 +44,7 @@ Enemy.prototype.run = function()
 				{
 						this.object.position.y += 4;
 				}
-				
+				/*
 				if(this.getDistanceFrom(hero) < 500){
 						//shoot at player - do later
 						if(this.shootTimer < Date.now()) {
@@ -65,7 +65,7 @@ Enemy.prototype.run = function()
 								this.object.position.x += 1;
 						}
 				}
-
+				*/
 				if(this.object.position.y < 500)
 				{
 						this.object.position.y += 4;
