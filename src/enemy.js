@@ -117,5 +117,11 @@ Enemy.prototype.getPointInsideBox = function(x, y)
 
 }
 
+Enemy.prototype.flipSprite = function()
+{
+		this.direction *= -1;
+		this.sprite.scale.x *= -1;
+		return this;
+}
 
 Enemy.allEnemies = new Array();
