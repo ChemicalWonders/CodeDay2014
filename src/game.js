@@ -39,6 +39,9 @@ var main = function(){
 	  hero.velocity_x -= 8;
 	});
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
 
 	kd.RIGHT.down(function() {
 	   hero.velocity_x += 8;
@@ -52,6 +55,7 @@ var main = function(){
 	  hero.fire_projectile(stage);
 	});
 
+<<<<<<< HEAD
 =======
 
 	kd.RIGHT.down(function() {
@@ -66,6 +70,8 @@ var main = function(){
 	  hero.fire_projectile(stage);
 	});
 
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
+=======
 >>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
 	kd.run(function() {
 		kd.tick();
@@ -86,10 +92,13 @@ var main = function(){
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         // platform
        var platTexture = PIXI.Texture.fromImage("static/block.jpg");
         plat = new PIXI.TilingSprite(platTexture,1300,50);
 =======
+=======
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
 =======
 >>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
     // Rectangle block 
@@ -99,6 +108,9 @@ var main = function(){
     var platTexture = PIXI.Texture.fromImage("static/stoneBlock.jpg");
         plat = new PIXI.TilingSprite(platTexture, 1300, 50);
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
+=======
 >>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
 =======
 >>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
@@ -107,6 +119,7 @@ var main = function(){
         plat.tilePosition.x = 0;
         plat.tilePosition.y = 0;
         stage.addChild(plat);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         requestAnimFrame(update);
@@ -118,6 +131,8 @@ var main = function(){
 =======
 =======
 >>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
+=======
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
 
         requestAnimFrame(update);
 
@@ -127,6 +142,9 @@ var main = function(){
 		mid.tilePosition.x -= 0.64;
         plat.tilePosition.x -= 0.128;
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
+=======
 >>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
 =======
 >>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
