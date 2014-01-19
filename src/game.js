@@ -6,14 +6,16 @@ var main = function(){
       far.tilePosition.x += 4.5;
       mid.tilePosition.x += 0.65;
       plat.tilePosition.x += 4.5;
-	  return hero.velocity_x -= 8;
+	  box.position.x += 4.5;
+	  return hero.velocity_x -= .0001;
 	});
 
 	kd.RIGHT.down(function() {
       far.tilePosition.x -= 4.5;
       mid.tilePosition.x -= 0.65;
       plat.tilePosition.x -= 4.5;
-	  return hero.velocity_x += 8;
+	  box.position.x -= 4.5;
+	  return hero.velocity_x += .0001
 	});
 
 		var timer = Date.now();
@@ -89,7 +91,13 @@ var main = function(){
         plat.tilePosition.x = 0;
         plat.tilePosition.y = 0;
         stage.addChild(plat);
-
+	var boxTexture = PIXI.Texture.fromImage("static/crate.jpg");
+		box = new PIXI.TilingSprite(boxTexture,220,220);
+		box.position.x = 700;
+		box.position.y = 380;
+		box.tilePosition.x = 0;
+		box.tilePosition.y = 0;
+		stage.addChild(box);
         requestAnimFrame(update);
 
     // Update Function
