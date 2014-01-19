@@ -15,6 +15,7 @@ function Projectile(stage, x, y, speed, direction, lifetime)
 		Projectile.allProjectiles.push(this);
 		this.addToStage(stage);
 		this.endTimer = Date.now() + lifetime;
+		
 
 }
 
