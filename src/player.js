@@ -77,6 +77,6 @@ Player = (function() {
 
 })();
 
-hero_texture = PIXI.Texture.fromImage('static/duckypower.gif');
+hero_texture = PIXI.Texture.fromImage('static/duckpower.gif');
 
 hero = new Player(new PIXI.Sprite(hero_texture));
