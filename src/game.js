@@ -2,29 +2,21 @@ var main = function(){
 
 }
 
-
-	kd.X.down(function() {
-	  return hero.velocity_y -= hero.sprite.height/2;
-	});
-
-	kd.run(function() {
-		kd.tick();
-	})
-
-    // Sets up stage, canvas and renderer
-	var main = function(){
-
+var main = function(){
 	var stage = new PIXI.Stage(0x66FF99);
 	var canvas = document.getElementById('game-canvas');
 	var renderer = PIXI.autoDetectRenderer(canvas.width, canvas.height, canvas);
-	
-    // Sets up background
 
 	stage.addChild(hero.sprite);
 	renderer.render(stage);
 
+<<<<<<< HEAD
 	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");	
 
+=======
+
+	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");	
+>>>>>>> d4a307589e1615722a1b7cf73bf64a774971e7bd
 		far = new PIXI.TilingSprite(farTexture, 1300, 650);
 		far.position.x = 0;
 		far.position.y = 0;
@@ -32,23 +24,8 @@ var main = function(){
 		far.tilePosition.y = 0;
 		stage.addChild(far);
 
-        hero.update();
-
 	kd.LEFT.down(function() {
 	  hero.velocity_x -= 8;
-	});
-
-
-	kd.RIGHT.down(function() {
-	   hero.velocity_x += 8;
-	});
-
-	kd.X.down(function() {
-	  hero.velocity_y -= hero.sprite.height;
-	});
-
-	kd.Z.down(function() {
-	  hero.fire_projectile(stage);
 	});
 
 	kd.RIGHT.down(function() {
@@ -67,6 +44,10 @@ var main = function(){
 		kd.tick();
 	})
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d4a307589e1615722a1b7cf73bf64a774971e7bd
 		hero.update();
 
         //file doesn't exist it still works. wat
@@ -77,25 +58,8 @@ var main = function(){
 		mid.tilePosition.x = 0;
         mid.tilePosition.y = 0;
         stage.addChild(mid);
-
-        // platform
-       var platTexture = PIXI.Texture.fromImage("static/block.jpg");
-        plat = new PIXI.TilingSprite(platTexture,1300,50);
-
-    // Rectangle block 
-    var rectBlock = PIXI.Rectangle(0, 600, 1300, 50);
-    
-    // Tiles/Platforms texture
-    var platTexture = PIXI.Texture.fromImage("static/stoneBlock.jpg");
-        plat = new PIXI.TilingSprite(platTexture, 1300, 50);
-
-        plat.position.x = 0;
-        plat.position.y = 600;
-        plat.tilePosition.x = 0;
-        plat.tilePosition.y = 0;
-        stage.addChild(plat);
-
         requestAnimFrame(update);
+<<<<<<< HEAD
 
     // Update Function
     function update() {
@@ -103,15 +67,21 @@ var main = function(){
 		mid.tilePosition.x -= 0.64;
         plat.tilePosition.x -= 0.128;
 
+=======
+    function update() {
+		far.tilePosition.x -= 0.128;
+		mid.tilePosition.x -= 0.64;
+>>>>>>> d4a307589e1615722a1b7cf73bf64a774971e7bd
 		renderer.render(stage);
 		console.log(hero.health);
-		objectmanager.run(stage);
+		objectmanager.run();
 		hero.update();
 		renderer.render(stage);
   		requestAnimFrame(update);
 
 	}
 	var enemy = new Enemy(stage, 200,0,-1);
+	var d = new Enemy(stage, 500,200, -1);
 	var objectmanager = new ObjectManager();
 	stage.addChild(hero.sprite);
 	renderer.render(stage);
