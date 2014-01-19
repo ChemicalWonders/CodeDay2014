@@ -10,13 +10,8 @@ var main = function(){
 	stage.addChild(hero.sprite);
 	renderer.render(stage);
 
-<<<<<<< HEAD
 	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");	
 
-=======
-
-	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");	
->>>>>>> d4a307589e1615722a1b7cf73bf64a774971e7bd
 		far = new PIXI.TilingSprite(farTexture, 1300, 650);
 		far.position.x = 0;
 		far.position.y = 0;
@@ -44,10 +39,6 @@ var main = function(){
 		kd.tick();
 	})
 
-<<<<<<< HEAD
-=======
-
->>>>>>> d4a307589e1615722a1b7cf73bf64a774971e7bd
 		hero.update();
 
         //file doesn't exist it still works. wat
@@ -59,19 +50,7 @@ var main = function(){
         mid.tilePosition.y = 0;
         stage.addChild(mid);
         requestAnimFrame(update);
-<<<<<<< HEAD
 
-    // Update Function
-    function update() {
-		far.tilePosition.x -= 0.128;
-		mid.tilePosition.x -= 0.64;
-        plat.tilePosition.x -= 0.128;
-
-=======
-    function update() {
-		far.tilePosition.x -= 0.128;
-		mid.tilePosition.x -= 0.64;
->>>>>>> d4a307589e1615722a1b7cf73bf64a774971e7bd
 		renderer.render(stage);
 		console.log(hero.health);
 		objectmanager.run();
