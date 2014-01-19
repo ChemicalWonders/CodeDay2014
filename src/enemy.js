@@ -3,7 +3,7 @@
 //ADDS ITSELF TO THE STAGE
 function Enemy(stage, x,y, direction)
 {
-		var texture = PIXI.Texture.fromImage("static/bunny.png");
+		var texture = PIXI.Texture.fromImage("static/chicken.png");
 		this.object = new PIXI.Sprite(texture);
 		this.object.position.x = x;
 		this.object.position.y = y;
@@ -50,10 +50,12 @@ Enemy.prototype.run = function()
 						if(hero.sprite.position.x < this.object.position.x)
 						{
 								//move left
+								this.direction = -1;
 								this.object.position.x -= 1;
 						}
 						else
 						{
+								this.direction = 1;
 								this.object.position.x += 1;
 						}
 				}

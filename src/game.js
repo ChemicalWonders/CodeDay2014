@@ -2,16 +2,34 @@ var controls = function(){
 
 }
 
+<<<<<<< HEAD
+	kd.X.down(function() {
+	  return hero.velocity_y -= hero.sprite.height/2;
+	});
+
+	kd.run(function() {
+		kd.tick();
+	})
+
+    // Sets up stage, canvas and renderer
+=======
 var main = function(){
+>>>>>>> 68a3ea8fbb8cc9225e70f9a42f2ae63e0187a41a
 	var stage = new PIXI.Stage(0x66FF99);
 	var canvas = document.getElementById('game-canvas');
 	var renderer = PIXI.autoDetectRenderer(canvas.width, canvas.height, canvas);
+	
+    // Sets up background
 
 	stage.addChild(hero.sprite);
 	renderer.render(stage);
 
+<<<<<<< HEAD
 
 	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");
+=======
+	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");	
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
 		far = new PIXI.TilingSprite(farTexture, 1300, 650);
 		far.position.x = 0;
 		far.position.y = 0;
@@ -19,6 +37,9 @@ var main = function(){
 		far.tilePosition.y = 0;
 		stage.addChild(far);
 
+<<<<<<< HEAD
+        hero.update();
+=======
 	kd.LEFT.down(function() {
 	  hero.velocity_x -= 8;
 	});
@@ -39,6 +60,13 @@ var main = function(){
 		kd.tick();
 	})
 
+<<<<<<< HEAD
+=======
+
+		hero.update();
+>>>>>>> 68a3ea8fbb8cc9225e70f9a42f2ae63e0187a41a
+
+>>>>>>> 2f62a31d7d2d77adc8e841b752dbccd443de558a
         //file doesn't exist it still works. wat
 		var midTexture = PIXI.Texture.fromImage("static/ignore.png");
 		mid = new PIXI.TilingSprite(midTexture, 512, 256);
@@ -47,13 +75,29 @@ var main = function(){
 		mid.tilePosition.x = 0;
         mid.tilePosition.y = 0;
         stage.addChild(mid);
+
+    // Rectangle block 
+    var rectBlock = PIXI.Rectangle(0, 600, 1300, 50);
+    
+    // Tiles/Platforms texture
+    var platTexture = PIXI.Texture.fromImage("static/stoneBlock.jpg");
+        plat = new PIXI.TilingSprite(platTexture, 1300, 50);
+        plat.position.x = 0;
+        plat.position.y = 600;
+        plat.tilePosition.x = 0;
+        plat.tilePosition.y = 0;
+        stage.addChild(plat);
+
         requestAnimFrame(update);
+
+    // Update Function
     function update() {
 		far.tilePosition.x -= 0.128;
 		mid.tilePosition.x -= 0.64;
+        plat.tilePosition.x -= 0.128;
 		renderer.render(stage);
 		console.log(hero.health);
-		objectmanager.run();
+		objectmanager.run(stage);
 		hero.update();
 		renderer.render(stage);
   		requestAnimFrame(update);

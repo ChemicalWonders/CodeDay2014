@@ -23,6 +23,7 @@
 	border-radius:25px;
 	width: 445px;
 	font-family:"BenchNine", Verdana, Sans-serif;
+	background-image:url('static/cave-end.jpg');
 	font-size:20px;
 	position: absolute;
 	top: 10px;
@@ -41,7 +42,7 @@
 
 	}
 	
-	#game-canvas { background-color: #222222; 
+	#game-canvas { background-image:url('static/cave-end.jpg'); 
 	  width: 1100px;
 height: 500px;
 border: 0px solid;
@@ -71,34 +72,12 @@ left:695px;
 	
 	</style>
   	<script src = 'bin/pixi.js'></script>
-	<script src = 'bin/underscore-min.js'></script>
+	
 	<script src = 'bin/jquery-min.js'></script>
-	<script src = 'src/game.js'></script>
-	<script src = 'src/enemy.js'></script>
-	<script src = 'src/objectmanager.js'></script>
-	<script src = 'src/projectile.js'></script>
-	<script src = 'src/player.js'></script>
 
-
-	<script src = 'bin/keydrown.min.js'></script>
 </head>
 
-<script>
-var life_count=6;
-var person="<img src='static/heart.png'>";
 
-
-document.write("<div id='inner'>");
-
-
-for (var i=0;i<life_count;i++)
-{ 
-document.write(person + "&nbsp;");
-}
-
-document.write("</div>");
-
-</script>
 
 	<body onload = 'main()'>
 			<div align='center'>

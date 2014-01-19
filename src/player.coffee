@@ -50,5 +50,9 @@ class Player
 		this
 
 
+<<<<<<< HEAD
 hero_texture = PIXI.Texture.fromImage('static/bunny.png')
+=======
+hero_texture = PIXI.Texture.fromImage('static/duckypower.gif')
+>>>>>>> origin/MobsAndObjects
 hero = new Player(new PIXI.Sprite(hero_texture))
