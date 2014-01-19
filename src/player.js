@@ -16,6 +16,11 @@ Player = (function() {
     this.velocity_x = 0;
     this.velocity_y = 0;
     this.direction = 1;
+	
+	function GetDivElement() {
+    return health;
+  }
+	
   }
 
   Player.prototype.flip_sprite = function() {

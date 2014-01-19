@@ -8,6 +8,15 @@
 <script src="http://wcetdesigns.com/assets/javascript/jquery.js"></script>
 <script src="bin/buzz.js"></script>
 <script src="bin/buzz.min.js"></script>
+<script src = 'bin/pixi.js'></script>
+	<script src = 'bin/underscore-min.js'></script>
+	<script src = 'bin/jquery-min.js'></script>
+	<script src = 'src/game.js'></script>
+	<script src = 'src/enemy.js'></script>
+	<script src = 'src/objectmanager.js'></script>
+	<script src = 'src/projectile.js'></script>
+	<script src = 'src/player.js'></script>
+	<script src = 'bin/keydrown.min.js'></script>
 
 
 	<style>
@@ -74,7 +83,7 @@ border: 5px solid;
 
 	  
 	  
-	  #inner {
+#heart {
 width:440px;
 height:40px;
 padding:10px;
@@ -85,45 +94,47 @@ left:695px;
 }
 
 	</style>
-  	<script src = 'bin/pixi.js'></script>
-	<script src = 'bin/underscore-min.js'></script>
-	<script src = 'bin/jquery-min.js'></script>
-	<script src = 'src/game.js'></script>
-	<script src = 'src/enemy.js'></script>
-	<script src = 'src/objectmanager.js'></script>
-	<script src = 'src/projectile.js'></script>
-	<script src = 'src/player.js'></script>
-	<script src = 'bin/keydrown.min.js'></script>
+  	
 
 	<script> 
 	var mySound = new buzz.sound("static/deepjungle.mp3", {
   autoplay: true,
   loop: true});
 	</script>
+	
+	<script src="src/player.js"></script>
+<script>
+
+	var x;
+	x = hero.health;
+
+	var life_count = x;
+	var person="<img src='static/heart.png'>";
+
+
+	document.write("<div id='heart'>");
+
+
+	for (var i=0;i<life_count;i++)
+	{ 
+	document.write(person + "&nbsp;");
+	}
+
+	document.write("</div>");
+</script>
+	
 </head>
 
-<script>
-var life_count=6;
-var person="<img src='static/heart.png'>";
 
-
-document.write("<div id='inner'>");
-
-
-for (var i=0;i<life_count;i++)
-{ 
-document.write(person + "&nbsp;");
-}
-
-document.write("</div>");
-
-</script>
 
 	<body onload = 'main()'>
 		
-				<canvas id = "game-canvas" width = '1300' height = '650'> &nbsp;
+				<canvas id = "game-canvas" width = '1300' height = '650'> 
 				</canvas>
 		
 			<div id="mute"><span id="1"><img src = "static/mute.png"/></span></div>
+			
+			
+
 	</body>
 </html>
