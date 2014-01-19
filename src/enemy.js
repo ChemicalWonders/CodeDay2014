@@ -1,19 +1,14 @@
 
 //ENEMY CLASS
 //ADDS ITSELF TO THE STAGE
-
 function Enemy(stage, x,y, direction)
 {
 		var texture = PIXI.Texture.fromImage("static/bunny.png");
 		this.object = new PIXI.Sprite(texture);
-
-		this.shootTimer = Date.now();
 		this.object.position.x = x;
 		this.object.position.y = y;
 		this.direction = direction;
-
 		this.stage = stage;
-		this.health = 1;
 		//assign arbitrary hit area
 		this.object.hitArea = new PIXI.Rectangle(0,0,10,10);
 
@@ -38,31 +33,17 @@ Enemy.prototype.run = function()
 				}*/
 		//just move him for now
 		//patrol around origional area
-		if(this.health > 0)
-		{
-				this.object.position.x += 1;
-				if(this.shootTimer < Date.now()) {
-						this.fireProjectile();
-						this.shootTimer = Date.now() + 1000;
-				}
-				if(this.object.position.y < 500)
-				{
-						this.object.position.y += 4;
-				}
-		}
-		else
-		{
-				//kill
-				//remove from the list
-				this.object.visible = false;
-				delete this;
-		}
+
+		this.object.position.x += 1;
+		this.fireProjectile();
 }
 
 Enemy.prototype.addToStage = function(stage)
 {
 		stage.addChild(this.object);
 }
+
+Emn
 
 Enemy.prototype.getDistanceFrom = function(player)
 {
@@ -73,37 +54,18 @@ Enemy.prototype.getDistanceFrom = function(player)
 		return ret;
 }
 
+Enemy.prototype.bounding_box = function() {
+    return new PIXI.Rectangle(this.object.position.x, this.object.position.y, this.object.width, this.object.height);
+};
+
 Enemy.prototype.fireProjectile = function()
 {
 		//create a projectile and add that projectil to the objectmanager
-		//set it on a timer
-		
 		var proj = new Projectile(this.stage,
 															this.object.position.x,
 															this.object.position.y,
-															5,
-															this.direction, 1000);
-
-}
-
-Enemy.prototype.damage = function(modifier)
-{
-		this.health -= modifier;
-}
-
-//Return function
-//to get the bounding box
-Enemy.prototype.getBoundingBox = function()
-{
-		return this.object.hitArea;
-}
-
-//return function
-//to see if specified point is within the collision bounds
-Enemy.prototype.getPointInsideBox = function(x, y)
-{
-		return ((x > this.object.hitArea.x && x < this.object.hitArea.x+this.object.hitArea.width)
-						&& (y > this.object.hitArea.y && y < this.object.hitArea.y+this.object.hitArea.height));
+															10,
+															this.direction);
 }
 
 Enemy.allEnemies = new Array();
