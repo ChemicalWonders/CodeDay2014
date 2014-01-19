@@ -77,6 +77,14 @@ Projectile.prototype.collisionPlayer = function(x, y)
 						&& (y > hero.sprite.position.y && y < hero.sprite.position.y+Math.abs(hero.sprite.height)));
 }
 
+Projectile.collision_test = function()
+{
+	return Projectile.allProjectiles.some(function(projectile){
+		return projectile.collisionPlayer(projectile.object.position.x, projectile.object.position.y);
+	});
+}
+
+
 //self deletion function
 Projectile.prototype.drop = function()
 {

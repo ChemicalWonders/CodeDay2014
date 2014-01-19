@@ -78,6 +78,21 @@ Enemy.prototype.run = function()
 		}
 }
 
+Enemy.prototype.collisionPlayer = function(x, y)
+{
+		return ((x > hero.sprite.position.x && x < hero.sprite.position.x+Math.abs(hero.sprite.width))
+						&& (y > hero.sprite.position.y && y < hero.sprite.position.y+Math.abs(hero.sprite.height)));
+}
+
+Enemy.collision_test = function()
+{
+	return Enemy.allEnemies.some(function(enemy){
+		return enemy.collisionPlayer(enemy.object.position.x, enemy.object.position.y);
+	});
+}
+
+
+
 Enemy.prototype.addToStage = function(stage)
 {
 		stage.addChild(this.object);
