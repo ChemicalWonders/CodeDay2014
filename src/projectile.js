@@ -28,6 +28,7 @@ Projectile.prototype.run = function()
 		if(this.endTimer > Date.now())
 		{
 			this.object.position.x += this.speed * this.direction;
+				this.object.position.y += (Math.random()*10)-5;
 				//check for the damaages
 				if(this.isPlayer)
 				{
