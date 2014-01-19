@@ -8,10 +8,11 @@ function Enemy(x,y)
 }
 
 
-Enemy.prototype.run = function(player)
+Enemy.prototype.run = function()
 {
 		//need this function for all types of enemies
 		//try to find the plaayer
+/*
 		if(getDistanceFrom(player) < 500){
 				//shoot at player - do later
 				
@@ -20,9 +21,9 @@ Enemy.prototype.run = function(player)
 				{
 						//move toward player
 						
-				}
+				}*/
 		//just move him for now
-		
+		this.object.position.x += 1;
 }
 
 Enemy.prototype.addToStage = function(stage)
@@ -37,5 +38,10 @@ Enemy.prototype.getDistanceFrom = function(player)
 		var distY = player.object.position.y - this.object.position.y;
 		var ret = Math.sqrt(distX*distX + distY*distY);
 		return ret;
+}
+
+Enemy.prototype.fireProjectile = function()
+{
+		
 }
 
