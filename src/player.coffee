@@ -21,12 +21,13 @@ class Player
 	fall: (dy = 0) ->
 		if @sprite.position.y < ground_line
 			@sprite.position.y += 1
-		else
-			@sprite.position.y += dy
-		this
+
+
+	jump: () ->
+		@sprite.position.y += @sprite.height
 
 	fire_projectile: (stage) ->
-		new Projectile(stage, @sprite.position.x, @sprite.position.y)
+		new Projectile(stage, @sprite.position.x + @sprite.width, @sprite.position.y, 5, @direction, 1000, true)
 
 	move_character: (dx = 0, dy = 0) ->
 		@sprite.position.x += dx
@@ -49,5 +50,9 @@ class Player
 		this
 
 
+<<<<<<< HEAD
 hero_texture = PIXI.Texture.fromImage('static/bunny.png')
+=======
+hero_texture = PIXI.Texture.fromImage('static/duckypower.gif')
+>>>>>>> origin/MobsAndObjects
 hero = new Player(new PIXI.Sprite(hero_texture))
