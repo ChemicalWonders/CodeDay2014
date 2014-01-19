@@ -10,9 +10,10 @@ Player = (function() {
     this.sprite = sprite;
     sprite.anchor.x = 0;
     sprite.anchor.y = 0;
+    sprite.position.x = 650;
     sprite.position.y = ground_line - sprite.height;
     this.alive = true;
-    this.health = 6;
+    this.health = 12;
     this.velocity_x = 0;
     this.velocity_y = 0;
     this.direction = 1;
@@ -39,7 +40,7 @@ Player = (function() {
   };
 
   Player.prototype.fire_projectile = function(stage) {
-    return new Projectile(stage, this.sprite.position.x + (-this.direction * this.sprite.width), this.sprite.position.y, 5, -this.direction, 1000, true);
+    return new Projectile(stage, this.sprite.position.x + (-this.direction * this.sprite.width), this.sprite.position.y, 20, -this.direction, 1000, true);
   };
 
   Player.prototype.move_character = function(dx, dy) {
@@ -78,7 +79,6 @@ Player = (function() {
       console.log(this.health);
       flip = (this.direction === -1 && this.velocity_x < 0) || (this.direction === 1 && this.velocity_x > 0);
       if (flip) {
-        this.move_character(this.direction * this.sprite.width, 0);
         this.flip_sprite();
       }
       if (!flip) {

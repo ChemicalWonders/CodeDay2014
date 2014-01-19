@@ -23,6 +23,7 @@ ObjectManager.prototype.run = function(stage)
     }
         if(Enemy.allEnemies.length < 5)
         {
-                new Enemy(stage, Math.random() * 1400+500, 400,-1);
+                new Enemy(stage, (Math.random() * 1400) * -1, 500,-1);
+                new Enemy(stage, (Math.random() * 1400+800) , 500,-1);
         }
 }

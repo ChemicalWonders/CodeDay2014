@@ -48,7 +48,7 @@ var main = function(){
 		if(hero.alive && shootTimer < Date.now())
 			{
 					hero.fire_projectile(stage);
-					shootTimer = Date.now()+300;
+					shootTimer = Date.now()+200;
 
 					var gunshotsound = new buzz.sound("static/gunshot.mp3");
 					gunshotsound.play();
@@ -77,8 +77,6 @@ var main = function(){
 		far.tilePosition.y = 0;
 		stage.addChild(far);
 
-        hero.update();
-    var counter = 24;
         //file doesn't exist it still works. wat
 		var midTexture = PIXI.Texture.fromImage("static/ignore.png");
 		mid = new PIXI.TilingSprite(midTexture, 512, 256);
@@ -112,20 +110,12 @@ var main = function(){
     function update() {
 		renderer.render(stage);
         hero.update();
-		if(counter == 0){
-			objectmanager.run(stage);
-		}
+		objectmanager.run(stage);
 		renderer.render(stage);
   		requestAnimFrame(update);
-  		if(counter > 0)
-  		{
-  			counter -= 1;
-  		} else {
-  			counter = 0;
-  		}
 
 	}
-		//var enemy = new Enemy(stage, 200,0,-1);
+
 	var objectmanager = new ObjectManager();
 	stage.addChild(hero.sprite);
 	renderer.render(stage);
