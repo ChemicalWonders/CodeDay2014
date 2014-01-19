@@ -22,7 +22,7 @@ var main = function(){
 	
     // Sets up background
 	var farTexture = PIXI.Texture.fromImage("static/cave-background.jpg");	
-		far = new PIXI.TilingSprite(farTexture, 1300, 600);
+		far = new PIXI.TilingSprite(farTexture, 1300, 650);
 		far.position.x = 0;
 		far.position.y = 0;
 		far.tilePosition.x = 0;
@@ -43,7 +43,7 @@ var main = function(){
     var rectBlock = PIXI.Rectangle(0, 600, 1300, 50);
     
     // Tiles/Platforms texture
-    var platTexture = PIXI.Texture.fromImage("static/tiles.png");
+    var platTexture = PIXI.Texture.fromImage("static/stoneBlock.jpg");
         plat = new PIXI.TilingSprite(platTexture, 1300, 50);
         plat.position.x = 0;
         plat.position.y = 600;
