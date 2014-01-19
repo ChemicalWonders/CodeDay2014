@@ -225,6 +225,17 @@ glow(); //RUNS THE FUNCTION UPON PAGE LOAD
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 </script>
+
+<script>
+function playSound(){
+    var snd=document.getElementById('noise');
+    canPlayMP3 = (typeof snd.canPlayType === "function" && snd.canPlayType("audio/mpeg") !== "");
+    snd.src=canPlayMP3?'smash.mpeg':'smash.ogg';
+    snd.load();
+    snd.play();
+}
+</script>
+
 <script>
 
 $(document).ready(function(){

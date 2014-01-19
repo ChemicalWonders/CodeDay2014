@@ -1,12 +1,12 @@
 
 (function(){
 	var stage = new PIXI.Stage(0x066FF99);
-	var renderer = PIXI.autoDetectRenderer(1500, 625);
+	var renderer = PIXI.autoDetectRenderer(1100, 500);
 	document.body.appendChild(renderer.view);
 	requestAnimFrame(animate);
 
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("static/bunny.png");
+    var texture = PIXI.Texture.fromImage("/static/bunny.png");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 //		var person = new Player(0,0);
