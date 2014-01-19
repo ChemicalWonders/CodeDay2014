@@ -14,7 +14,7 @@ ObjectManager.prototype.run = function(stage)
 {
     //run thru all objects
     for(var i = 0; i < Enemy.allEnemies.length; i++){
-        Enemy.allEnemies[i].run(hero);
+        Enemy.allEnemies[i].run();
     }
     for(var i = 0; i < Projectile.allProjectiles.length; i++)
     {

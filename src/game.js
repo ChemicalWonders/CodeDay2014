@@ -49,7 +49,6 @@ var main = function(){
 			{
 					hero.fire_projectile(stage);
 					shootTimer = Date.now()+200;
-
 					var gunshotsound = new buzz.sound("static/gunshot.mp3");
 					gunshotsound.play();
 
