@@ -2,7 +2,11 @@
 
 (function(){
 	var stage = new PIXI.Stage(0x066FF99);
+<<<<<<< HEAD
 	var renderer = PIXI.CANVAS_RENDERER;
+=======
+	var renderer = PIXI.autoDetectRenderer(1500, 625);
+>>>>>>> c9454934b5e5e9e16c444f8e226e1e53da3eee6f
 	document.body.appendChild(renderer.view);
 	requestAnimFrame(animate);
 
