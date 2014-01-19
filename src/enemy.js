@@ -32,6 +32,18 @@ Enemy.prototype.run = function()
 		if(this.health > 0)
 		{
 
+						//move toward player
+						if(hero.sprite.position.x < this.object.position.x)
+						{
+								//move left
+								this.direction = -1;
+								this.object.position.x -= 1;
+						}
+						else
+						{
+								this.direction = 1;
+								this.object.position.x += 1;
+						}
 				//make gravity
 				if(this.object.position.y < 500)
 				{
@@ -46,18 +58,6 @@ Enemy.prototype.run = function()
 				}
 				else
 				{
-						//move toward player
-						if(hero.sprite.position.x < this.object.position.x)
-						{
-								//move left
-								this.direction = -1;
-								this.object.position.x -= 1;
-						}
-						else
-						{
-								this.direction = 1;
-								this.object.position.x += 1;
-						}
 
 						if(hero.sprite.position.y > this.object.position.y)
 						{
