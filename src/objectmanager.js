@@ -6,10 +6,14 @@ function ObjectManager()
 
 ObjectManager.prototype.run = function()
 {
-		
+		for(int i = 0; i < this.allEnemies.length; i++)
+				{
+						
+						}
+
 }
 
 ObjectManager.prototype.addEnemy = function(enemy)
 {
-		this.allEnemies.
+		this.allEnemies.push(enemy);
 }
