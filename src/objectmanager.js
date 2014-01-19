@@ -9,8 +9,10 @@ ObjectManager.prototype.run = function()
 				Enemy.allEnemies[i].run();
 						
 		}
-		for(i = 0; i < Projectile.allProjectiles.length; i++){
+		for(i = 0; i < Projectile.allProjectiles.length; i++)
+		{
 				Projectile.allProjectiles[i].run();
+
 		}
 
 }
