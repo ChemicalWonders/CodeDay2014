@@ -25,10 +25,10 @@ Projectile.prototype.run = function()
 		//shoot in the direction that we were pointing to
 		if(this.endTimer > Date.now())
 		{
-				if(this.direction == -1){
+				if(this.direction == 1){
 						this.object.position.x += this.speed;
 				}
-				else if(this.direction == 1){
+				else if(this.direction == -1){
 						this.object.position.x -= this.speed;
 				}
 				//check for the damaages
@@ -48,7 +48,7 @@ Projectile.prototype.run = function()
 				else
 				{
 						//damage the player
-						
+
 				}
 		}
 		else

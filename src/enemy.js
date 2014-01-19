@@ -44,7 +44,7 @@ Enemy.prototype.run = function()
 				{
 						this.object.position.y += 4;
 				}
-				/*
+				
 				if(this.getDistanceFrom(hero) < 500){
 						//shoot at player - do later
 						if(this.shootTimer < Date.now()) {
@@ -52,7 +52,6 @@ Enemy.prototype.run = function()
 								this.shootTimer = Date.now() + 1000;
 						}						
 				}
-<<<<<<< HEAD
 				else
 				{
 						//move toward player
@@ -65,13 +64,12 @@ Enemy.prototype.run = function()
 						{
 								this.object.position.x += 1;
 						}
-				}*/
-=======
+				}
+
 				if(this.object.position.y < 500)
 				{
 						this.object.position.y += 4;
 				}
->>>>>>> origin/master
 		}
 		else
 		{
@@ -80,7 +78,6 @@ Enemy.prototype.run = function()
 				this.object.visible = false;
 				delete this;
 		}
-		this.fireProjectile();
 }
 
 Enemy.prototype.addToStage = function(stage)
@@ -109,23 +106,15 @@ Enemy.prototype.fireProjectile = function()
 															this.object.position.x+10,
 															this.object.position.y+10,
 															5,
-<<<<<<< HEAD
 															this.direction, 1000, false);
- 
-=======
-															this.direction);
->>>>>>> origin/master
 }
+
 
 Enemy.prototype.getPointInsideBox = function(x, y)
 {
-<<<<<<< HEAD
 		return ((x > this.object.position.x && x < this.object.position.x+this.object.hitArea.width)
 						&& (y > this.object.position.y && y < this.object.position.y+this.object.hitArea.height));
-=======
-				return ((x > this.object.hitArea.x && x < this.object.hitArea.x+this.object.hitArea.width)
-								&& (y > this.object.hitArea.y && y < this.object.hitArea.y+this.object.hitArea.height));
->>>>>>> origin/master
+
 }
 
 
