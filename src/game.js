@@ -3,13 +3,14 @@
 (function(){
     var interactive = true;
 	var stage = new PIXI.Stage(0x066FF88, interactive);
-	var renderer = PIXI.autoDetectRenderer(400, 300);
+	var renderer = PIXI.autoDetectRenderer(1400, 1000);
 
 	document.body.appendChild(renderer.view);
 	requestAnimFrame(animate);
 
     // create a texture from an image path
     var texture = PIXI.Texture.fromImage("static/bunny.png.jpg");
+    var texture = PIXI.Texture.fromImage("static/bunny2.png.jpg");
     // create a new Sprite using the texture
     var bunny = new PIXI.Sprite(texture);
 	var person = new Person();
@@ -31,7 +32,7 @@
     function animate() {
 
         requestAnimFrame( animate );
-
+.
 
         bunny.click = function(mouseData){
            console.log("CLICK!");
@@ -41,6 +42,10 @@
             else {
                 bunny.alpha = 1;
             }
+        }
+
+        bunny.mouseOver = function(mouseData){
+
         }
 
         document.addEventListener('keydown',function(event){
