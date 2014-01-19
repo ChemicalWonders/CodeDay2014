@@ -1,12 +1,9 @@
-ground_line = 500
 class Player
 	@life = 3
 
 	constructor: (@sprite) ->
-		sprite.anchor.x = 0
-		sprite.anchor.y = 0.2
 		@alive = true
-		@health = 6
+		@health = 3
 		@velocity_x = 0
 		@velocity_y = 0
 		@direction  = 1 #facing right
@@ -16,14 +13,9 @@ class Player
 		@sprite.scale.x *= -1
 		this
 
-	fall: () ->
-		if @velocity_y < 0 and @sprite.position.y > ground_line
-			@sprite.position.y =- 1
-		@velocity_y += 1 if @velocity_y < 0
-
-	move_character: (dx = 0) ->
+	move_character: (dx = 0, dy = 0) ->
 		@sprite.position.x += dx
-		@fall()
+		@sprite.position.y += dy
 		this
 
 	collision_test_enemy: (enemy) ->
@@ -41,9 +33,9 @@ class Player
 			@alive = false
 		else
 			@health -= 1 if collison_test(enemy_list)
-			move_character(@velocity_x)
+			move_character(@velocity_x, @velocity_y)
 			flip_sprite() if @direction == 0 and @velocity_x < 0
-			flip_sprite() if @direction == 0 and @velocity_x > 0
+			flip_sprite() if @direction == 0 and @velocity_x < 0
 			@velocity_x = 0
 			@velocity_y = 0
 		this
@@ -52,6 +44,3 @@ class Player
 		new PIXI.Rectangle(@sprite.position.x, @sprite.position.y, @sprite.width, @sprite.height)
 
 hero = new Player(PIXI.Texture.fromImage('static/hero.png'))
-kd.LEFT.down(() -> hero.velocity_x -= 5 )
-kd.RIGHT.down(() -> hero.velocity_x += 5 )
-kd.X.down(() -> hero.velocity_y -= 5 )
