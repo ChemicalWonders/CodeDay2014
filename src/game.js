@@ -48,7 +48,7 @@ var main = function(){
 			{
 					hero.fire_projectile(stage);
 					shootTimer = Date.now()+200;
-					var gunshotsound = new buzz.sound("static/gunshot.mp3");
+					var gunshotsound = new buzz.sound("static/gunshot.wav");
 					gunshotsound.play();
 
 			}
@@ -76,6 +76,7 @@ var main = function(){
 		stage.addChild(far);
 
         //file doesn't exist it still works. wat
+        //keeps giving me error messages on console log
 		var midTexture = PIXI.Texture.fromImage("static/ignore.png");
 		mid = new PIXI.TilingSprite(midTexture, 512, 256);
 		mid.position.x = 0;
