@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Belgrano">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Balthazar">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=BenchNine">
+<link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Bad+Script'>
+
+<script src="bin/buzz.js"></script>
+<script src="bin/buzz.min.js"></script>
+
+
+<style>
+
+body
+{ 
+background: #000000; 
+}
+
+CSS selector {
+  font-family: 'Verdana', serif;
+}
+
+
+@font-face {
+    font-family: 'aaarghnormal';
+    src: url('/style/aaargh-webfont.eot');
+    src: url('/style/aaargh-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/style/aaargh-webfont.woff') format('woff'),
+         url('/style/aaargh-webfont.ttf') format('truetype'),
+         url('/style/aaargh-webfont.svg#aaarghnormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#start
+{
+width: 190px;
+height: 30px;
+border: 0px solid;
+align: center;
+opacity:0.9;
+filter:alpha(opacity=27); /* For IE8 and earlier */
+background-color: #356680;
+color: #FFFFFF;
+border-radius: 15px;
+border: 2px solid;
+font-size: 20px;
+font-family: "BenchNine";
+padding-top: 5px;  
+padding-right: 0px;   
+padding-left: 20px;
+}
+
+#button2
+{
+width: 190px;
+height: 30px;
+border: 2px solid;
+align: center;
+opacity:0.9;
+filter:alpha(opacity=27); /* For IE8 and earlier */
+background-color: #356680;
+color: #FFFFFF;
+border-radius: 15px;
+font-size: 20px;
+font-family: "BenchNine";
+padding-top: 5px;  
+padding-right: 0px;   
+padding-left: 20px;
+}
+
+#button3
+{
+width: 190px;
+height: 30px;
+border: 2px solid;
+align: center;
+opacity:0.9;
+filter:alpha(opacity=27); /* For IE8 and earlier */
+background-color: #356680;
+color: #FFFFFF;
+border-radius: 15px;
+font-size: 20px;
+font-family: "BenchNine";
+padding-top: 5px;  
+padding-right: 0px;   
+padding-left: 20px;
+}
+
+#button4
+{
+width: 190px;
+height: 30px;
+border: 2px solid;
+align: center;
+opacity:0.9;
+filter:alpha(opacity=27); /* For IE8 and earlier */
+background-color: #356680;
+color: #FFFFFF;
+border-radius: 15px;
+font-size: 20px;
+font-family: "BenchNine";
+padding-top: 5x;
+padding-right: 0px;    
+padding-left: 20px;
+}
+
+#button5
+{
+width: 190px;
+height: 30px;
+border: 2px solid;
+align: center;
+opacity:0.9;
+filter:alpha(opacity=27); /* For IE8 and earlier */
+background-color: #356680;
+color: #FFFFFF;
+border-radius: 15px;
+font-size: 20px;
+font-family: "BenchNine";
+padding-top: 5px;  
+padding-right: 0px;   
+padding-left: 20px;
+}
+
+#button6
+{
+width: 190px;
+height: 30px;
+border: 2px solid;
+align: center;
+opacity:0.9;
+filter:alpha(opacity=27); /* For IE8 and earlier */
+background-color: #356680;
+color: #FFFFFF;
+border-radius: 15px;
+font-size: 20px;
+font-family: "BenchNine";
+padding-top: 5px;  
+padding-right: 0px;   
+padding-left: 20px;
+}
+
+#data_container
+{
+width: 812px;
+height: 332px;
+border: 0px solid;
+align: center;
+opacity:0.8;
+filter:alpha(opacity=27); /* For IE8 and earlier */
+background-color: #356680;
+color: #FFFFFF;
+border-radius: 15px;
+font-size: 20px;
+font-family: "BenchNine";
+padding-top: 5px;  
+padding-right: 0px;   
+padding-left: 20px;
+position: absolute;
+top: 30px;
+left: 260px;
+}
+
+#gamecontainer{
+
+width: 1100px;
+height: 500px;
+border: 0px solid;
+align: center;
+position: absolute;
+top: 20px;
+background: #FFFFFF url('static/jump.jpg.jpg') no-repeat fixed left;
+color: #FFFFFF;
+border-radius: 15px;
+font-size: 20px;
+font-family: "BenchNine";
+padding-top: 40px;  
+padding-right: 0px;   
+padding-left: 20px;
+
+}
+
+
+p.small {line-height:70%;}
+br {
+   display: block;
+   margin: 5px 0;
+}
+
+li:hover
+{ 
+color:#38657d;
+}
+
+span:hover
+{ 
+color:#000000;
+}
+
+#glo_txt {
+  color: #FFFFFF;
+  font-size: 65px;
+  font-weight: bold;
+  text-shadow: 0 0 30px #12495d;
+  font-family: "Bad Script";
+  padding-top: -20px;
+  z-index: 52;
+}        
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:hover
+{
+color:#000000;
+}
+
+</style>
+
+<script> 
+var mn = 3; //MINIMUM SHADOW BLUR
+var mx = 10; //MAXIMUM SHADOW BLUR
+var loop = (mx-mn)+1; //LOOP GOING UP AND DOWN
+var x = -1; //CONSTANT INCREMENTING VARIABLE
+var p = mn-1; //MINIMUM SHADOW BEFORE FUNCTION (MUST 1 LESS THAN "var mn")
+
+var mySound = new buzz.sound("static/dearlybeloved.mp3", {
+  autoplay: true,
+  loop: true});
+function glow(){
+  var v = $('#t').val(); //INPUT STRING
+  x++; //CONSTANTLY INCREMENTING
+  var g = (x%(loop*2)); //TO KEEP THE PIXELS GOING UP AND DOWN SMOOTHLY
+
+   //IF AT THE MINIMUM, EXPAND SHADOW 
+  if(g>=0&&g<=loop-1){
+    if(g==0){
+      p = mn-1;
+    }
+    p++;
+  }
+   //IF AT THE MAXIMUM, DIMINISH SHADOW 
+  if(g>=loop&&g<=(loop*2)-1){
+    if(g==loop){
+      p = mx+1;
+    }
+    p--;
+  }
+
+   //ALTERS THE GLOW OF THE TEXT, EVERY 150 MILLISECONDS 
+  $("#glo_txt").css({"text-shadow":"0 0 "+p+"px #3f2b24"}).html(v);
+  setTimeout("glow()", 250);
+}
+glow(); //RUNS THE FUNCTION UPON PAGE LOAD
+</script> 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+
+
+
+<script>
+
+$(document).ready(function(){
+  $("#1").click(function(){
+  $("#maincontainer").replaceWith( "<div id='div1'></div>");
+    $("#data_container").load("description.html #1");
+        $("#content").load("resume.html");
+  });
+});
+
+$(document).ready(function(){
+  $("#2").click(function(){
+    $("#data_container").load("description.html #2");
+  });
+});
+
+$(document).ready(function(){
+  $("#3").click(function(){
+    $("#data_container").load("description.html #3");
+  });
+});
+
+$(document).ready(function(){
+  $("#4").click(function(){
+    $("#data_container").load("description.html #4");
+  });
+});
+
+$(document).ready(function(){
+  $("#5").click(function(){
+    $("#data_container").load("description.html #5");
+  });
+});
+
+$(document).ready(function(){
+  $("#6").click(function(){
+
+    if (!mySound.isPaused()){
+      mySound.stop();
+    }
+    else{
+      mySound.play();
+    }
+  });
+});
+
+
+
+</script>
+</head>
+
+<body>
+<div id="gamecontainer">
+<div id="start" value="start"><div align="left"><span id="1"><a href="jump.html">NEW GAME</a></span></div></div><br>
+<div id="button2"><div align="left"><span id="2">HOW TO PLAY</span></div></div><br>
+<div id="button3"><div align="left"><span id="3">STORY</span></div></div><br>
+<div id="button4"><div align="left"><span id="4">CREDITS</span></div></div><br>
+<div id="button5"><div align="left"><span id="5">SETTINGS</span></div></div><br>
+<div id="button6"><div align="left"><span id="6">MUTE SOUND/ENABLE SOUND</span></div></div><br>
+
+<div id="data_container">
+
+<marquee><b>The Journey of Ron the Duck. Avenger of his Parents. The one and only Bronze Slug.
+</b></marquee></div>
+
+<div align="center"><a id="glo_txt">Bronze Slug: The Saga Continues</a></div>
+
+</div>
+
+</body>
+</html>
