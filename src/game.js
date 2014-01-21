@@ -2,6 +2,7 @@ var main = function(){
 		var shootTimer = Date.now();
 		var jumpTimer = Date.now();
 		var jumped = false;
+		
 	kd.LEFT.down(function() {
 	  if (!hero.alive) return;
       far.tilePosition.x += 4.5;
@@ -9,6 +10,7 @@ var main = function(){
       plat.tilePosition.x += 4.5;
 	  box.position.x += 4.5;
 	  return hero.velocity_x -= .0001;
+	  
 	});
 
 	kd.RIGHT.down(function() {
