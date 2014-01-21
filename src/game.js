@@ -32,8 +32,11 @@ var main = function(){
 				}
 				else if(jumped)
 				{
-						if(timer > Date.now())
+						if(timer > Date.now()){
 								hero.sprite.position.y -= hero.sprite.height * .5;
+								var jumpSound = new buzz.sound("static/ducksqueel.wav");
+								jumpSound.play();
+							}
 						else
 						{
 								jumped = false;

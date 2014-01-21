@@ -102,6 +102,8 @@ Enemy.prototype.run = function()
 
 Enemy.prototype.damage = function(){
 	this.health -= 1;
+	var chickenDeath = new buzz.sound("static/chickencall.wav");
+	chickenDeath.play();
 }
 
 
